@@ -18,7 +18,7 @@ export default function Home() {
   const initializeQuiz = useCallback(() => {
     const questions = getShuffledQuizQuestions();
     setQuizState({
-      currentQuestionIndex: 0,
+      currentQuestionIndex: 55,
       isQuizFinished: false,
       userAnswers: [], // Reset answers array
       questions: questions,
@@ -72,13 +72,11 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4">
+    <div className="min-h-screen bg-gradient-to-br transition-colors wave-gradient-bg p-4 font-jura">
       <div className="max-w-3xl mx-auto">
         <header className="text-center mb-8 pt-4">
-          <h1 className="text-4xl font-extrabold text-gray-800">
-            IN5320 - Mock Exam
-          </h1>
-          <p className="text-gray-600 mt-2">
+          <h1 className="text-4xl font-extrabold">IN5320 - Mock Exam</h1>
+          <p className="mt-2">
             A random set of 60 questions selected from a pool of{" "}
             {ALL_QUIZ_QUESTIONS.length}.
           </p>

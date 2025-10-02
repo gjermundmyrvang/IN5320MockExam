@@ -19,9 +19,10 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
   const isAnswered = !!userAnswer;
 
   return (
-    <div className="bg-white shadow-xl rounded-xl p-6 border border-gray-200">
-      <p className="text-sm font-semibold text-blue-600 mb-3">
-        Question {questionNumber} of {totalQuestions}
+    <div className="bg-white/20 backdrop-blur-2xl shadow-xl rounded-xl p-6 border border-black">
+      <p className="text-sm sm:text-lg md:text-xl font-thin text-gray-800 mb-4">
+        Question <span className="font-extrabold">{questionNumber}</span> of{" "}
+        {totalQuestions}
       </p>
       <h2 className="text-2xl font-bold text-gray-900 mb-6">
         {question.question}
@@ -31,7 +32,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
           const isSelected = userAnswer?.selectedOptionIndex === index;
 
           let className =
-            "p-4 border rounded-lg text-left w-full transition duration-150 ease-in-out cursor-pointer";
+            "p-4 border border-gray-800 rounded-lg text-left w-full transition duration-150 ease-in-out cursor-pointer";
 
           if (isAnswered) {
             // In default mode, just highlight the selected answer
@@ -40,12 +41,12 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
                 " bg-blue-100 border-blue-500 font-medium text-blue-800";
             } else {
               className +=
-                " bg-gray-50 border-gray-200 text-gray-700 opacity-70";
+                " bg-purple-500 border-gray-200 text-gray-700 opacity-70";
             }
           } else {
             // Unanswered: interactive button style
             className +=
-              " bg-white border-gray-300 text-gray-800 hover:bg-blue-50 hover:border-blue-400";
+              " bg-white/10 backdrop-blur-2xl border-gray-300 text-gray-800 hover:bg-purple-400/30 hover:border-purple-400";
           }
 
           return (

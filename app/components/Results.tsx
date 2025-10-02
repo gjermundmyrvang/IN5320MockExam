@@ -26,7 +26,7 @@ const Results: React.FC<ResultsProps> = ({ userAnswers, onRestart }) => {
   const incorrectTopics = Object.keys(incorrectByTopic);
 
   return (
-    <div className="bg-white shadow-2xl rounded-xl p-8">
+    <div className="bg-white/20 backdrop-blur-2xl shadow-2xl rounded-xl p-8">
       <h1 className="text-3xl font-bold text-center mb-4 text-gray-800">
         Quiz Complete!
       </h1>
@@ -49,7 +49,7 @@ const Results: React.FC<ResultsProps> = ({ userAnswers, onRestart }) => {
 
       {incorrectTopics.length > 0 ? (
         <>
-          <h2 className="text-2xl font-bold mb-4 text-red-600">
+          <h2 className="text-2xl font-bold mb-4 text-red-600 underline underline-offset-2">
             Areas to Review:
           </h2>
           <p className="mb-6 text-gray-700">
@@ -61,9 +61,9 @@ const Results: React.FC<ResultsProps> = ({ userAnswers, onRestart }) => {
             {incorrectTopics.map((topic) => (
               <div
                 key={topic}
-                className="p-4 border border-red-300 bg-red-50 rounded-lg"
+                className="p-4 border border-red-300 bg-gray-300 rounded-lg"
               >
-                <h3 className="text-xl font-semibold text-red-700 mb-3">
+                <h3 className="text-xl font-semibold text-red-800 mb-3">
                   {topic} ({incorrectByTopic[topic].length} incorrect)
                 </h3>
                 <ul className="list-none space-y-4">
@@ -73,7 +73,7 @@ const Results: React.FC<ResultsProps> = ({ userAnswers, onRestart }) => {
                     );
 
                     return (
-                      <li key={q.id} className="border-b border-red-200 pb-4">
+                      <li key={q.id} className="border-b border-gray-500 pb-4">
                         <p className="font-medium text-gray-900">
                           <span className="text-red-600 mr-1">Q:</span>{" "}
                           {q.question}
