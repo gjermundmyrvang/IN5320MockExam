@@ -6,1307 +6,2370 @@ const shuffleArray = (array: Question[]) =>
 
 // The total pool of 80 questions
 export const ALL_QUIZ_QUESTIONS: Question[] = [
-  // ------------------------------------
-  // --- HTML QUESTIONS (IDs 1 - 20) ---
-  // ------------------------------------
   {
     id: 1,
     topic: "HTML",
-    question: "What is the primary purpose of the <!DOCTYPE html> declaration?",
+    question:
+      "What is the primary function of HTML (HyperText Markup Language)?",
     answerOptions: [
       {
-        text: "To define a global variable for JavaScript.",
+        text: "To add style and visual formatting to a web page.",
         rationale:
-          "The DOCTYPE is an instruction for the web browser, not a mechanism for JavaScript variable definition.",
+          "Styling is the primary responsibility of CSS (Cascading Style Sheets).",
         isCorrect: false,
       },
       {
-        text: "To inform the browser about the document type and HTML version.",
+        text: "To define the structure and content of a web page.",
         rationale:
-          "The declaration is a signal to the web browser to use HTML5 standards mode for rendering the page.",
+          "HTML uses markup tags to organize text, images, and other media into a logical document structure.",
         isCorrect: true,
       },
       {
-        text: "To specify the document's language for search engines.",
+        text: "To create interactivity and dynamic behavior on a web page.",
         rationale:
-          "The language is specified using the `lang` attribute on the `<html>` tag, not the DOCTYPE.",
+          "Interactivity and dynamic behavior are handled by JavaScript.",
         isCorrect: false,
       },
       {
-        text: "To link an external CSS stylesheet.",
+        text: "To establish a connection between the browser and the web server.",
         rationale:
-          "External stylesheets are linked using the `<link>` tag within the `<head>` section.",
+          "The HTTP protocol handles communication between the browser and server.",
         isCorrect: false,
       },
     ],
-    hint: "It helps the browser decide which set of rules to follow when displaying the page content.",
+    hint: "Think about the role of a document's skeleton or blueprint.",
   },
   {
     id: 2,
     topic: "HTML",
-    question:
-      "Which HTML5 element should be used to enclose a set of navigation links?",
+    question: "Which tag is used to create a hyperlink in HTML?",
     answerOptions: [
       {
-        text: "<header>",
+        text: "<link>",
         rationale:
-          "The `<header>` element is for introductory content, typically containing headings or a logo, not exclusively navigation links.",
+          "The `<link>` tag is used to link external resources, such as stylesheets or favicons, not for internal hyperlinks.",
         isCorrect: false,
       },
       {
-        text: "<nav>",
-        rationale:
-          "The `<nav>` element is specifically designed to contain navigation links for a document or section.",
-        isCorrect: true,
-      },
-      {
-        text: "<section>",
-        rationale:
-          "The `<section>` element is for grouping related content, but `<nav>` is more specific and semantically correct for navigation.",
-        isCorrect: false,
-      },
-      {
-        text: "<ul>",
-        rationale:
-          "While navigation is often presented as an unordered list, the `<nav>` tag provides the correct semantic wrapper.",
-        isCorrect: false,
-      },
-    ],
-    hint: "Think about the semantic meaning intended for major site navigation blocks.",
-  },
-  {
-    id: 3,
-    topic: "HTML",
-    question:
-      "Which element is used to group related form elements and give them a caption?",
-    answerOptions: [
-      {
-        text: "<form> and <title>",
-        rationale:
-          "The `<form>` element encloses the entire form, and `<title>` is for the document's title.",
-        isCorrect: false,
-      },
-      {
-        text: "<group> and <name>",
-        rationale:
-          "`<group>` is not a standard HTML element, and `name` is an attribute for form control data.",
-        isCorrect: false,
-      },
-      {
-        text: "<fieldset> and <legend>",
-        rationale:
-          "The `<fieldset>` element groups controls, and its `<legend>` element provides a caption for the group.",
-        isCorrect: true,
-      },
-      {
-        text: "<section> and <h1>",
-        rationale:
-          "These are general elements for document structure, not specifically for form grouping and captioning.",
-        isCorrect: false,
-      },
-    ],
-    hint: "One element creates the border/grouping, and the other names the group.",
-  },
-  {
-    id: 4,
-    topic: "HTML",
-    question:
-      "What is the correct HTML for creating a hyperlink that opens in a new tab?",
-    answerOptions: [
-      {
-        text: '<a href="url" target="new">Link Text</a>',
-        rationale:
-          'The value `"new"` is not the standard attribute value; `"_blank"` is correct.',
-        isCorrect: false,
-      },
-      {
-        text: '<a href="url" newtab>Link Text</a>',
-        rationale:
-          "`newtab` is not a standard HTML attribute for the anchor tag.",
-        isCorrect: false,
-      },
-      {
-        text: '<a href="url" target="_blank">Link Text</a>',
-        rationale:
-          'The `target="_blank"` attribute instructs the browser to open the linked document in a new browsing context (tab or window).',
-        isCorrect: true,
-      },
-      {
-        text: '<a src="url" target="_new">Link Text</a>',
-        rationale:
-          'Hyperlinks use the `href` attribute, not `src`, and the target value should be `"_blank"`.',
-        isCorrect: false,
-      },
-    ],
-    hint: "This is controlled by a specific attribute on the anchor tag.",
-  },
-  {
-    id: 5,
-    topic: "HTML",
-    question:
-      "Which attribute is mandatory for the <img> tag and provides text for accessibility and when the image cannot be displayed?",
-    answerOptions: [
-      {
-        text: "title",
-        rationale:
-          "The `title` attribute provides a tooltip but is not mandatory and not the primary fallback text.",
-        isCorrect: false,
-      },
-      {
-        text: "src",
-        rationale:
-          "`src` is mandatory to specify the image source, but `alt` provides the accessibility and fallback text.",
-        isCorrect: false,
-      },
-      {
-        text: "alt",
-        rationale:
-          "The `alt` (alternative text) attribute is required for accessibility and is shown if the image fails to load.",
-        isCorrect: true,
-      },
-      {
-        text: "data-image",
-        rationale:
-          "`data-image` is a custom data attribute and has no inherent meaning for accessibility.",
-        isCorrect: false,
-      },
-    ],
-    hint: "This attribute is crucial for screen readers and search engine optimization.",
-  },
-  {
-    id: 6,
-    topic: "HTML",
-    question:
-      "Which tags define the body and a standard cell within an HTML table, respectively?",
-    answerOptions: [
-      {
-        text: "<tfootfoot> and <tc>",
-        rationale:
-          "Neither `<tfootfoot>` nor `<tc>` are standard HTML table elements.",
-        isCorrect: false,
-      },
-      {
-        text: "<body> and <datacell>",
-        rationale:
-          "The standard `<body>` element is for the main document content, and `<datacell>` is not a valid tag.",
-        isCorrect: false,
-      },
-      {
-        text: "<tbody> and <td>",
-        rationale:
-          "`<tbody>` wraps the main content rows, and `<td>` (table data) defines a standard data cell.",
-        isCorrect: true,
-      },
-      {
-        text: "<main> and <data>",
-        rationale:
-          "`<main>` is a document-level element, and `<data>` is for machine-readable content, not standard table cells.",
-        isCorrect: false,
-      },
-    ],
-    hint: "Remember the structural components: head, body, and the individual data points.",
-  },
-  {
-    id: 7,
-    topic: "HTML",
-    question: "Which of the following is a *block-level* element?",
-    answerOptions: [
-      {
-        text: "<span>",
-        rationale: "The `<span>` element is an inline-level element.",
+        text: "<hlink>",
+        rationale: "`<hlink>` is not a standard HTML element.",
         isCorrect: false,
       },
       {
         text: "<a>",
         rationale:
-          "The `<a>` (anchor) element is typically an inline-level element.",
+          "The `<a>` (anchor) tag is used to create a link to another document or to a different part of the current document.",
+        isCorrect: true,
+      },
+      {
+        text: "<url>",
+        rationale: "`<url>` is not a standard HTML element.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This element is often called an 'anchor' tag.",
+  },
+  {
+    id: 3,
+    topic: "HTML",
+    question:
+      "Which HTML element contains metadata about the HTML document, such as the character set, links to stylesheets, and the document's title?",
+    answerOptions: [
+      {
+        text: "<body>",
+        rationale: "The `<body>` element contains the visible page content.",
         isCorrect: false,
       },
       {
-        text: "<strong>",
-        rationale: "The `<strong>` element is an inline-level element.",
-        isCorrect: false,
-      },
-      {
-        text: "<div>",
+        text: "<html>",
         rationale:
-          "`<div>` is a generic block-level container, meaning it starts on a new line and takes up the full width available.",
+          "The `<html>` element is the root element that wraps the entire document.",
+        isCorrect: false,
+      },
+      {
+        text: "<head>",
+        rationale:
+          "The `<head>` element contains information about the document that is not displayed to the user.",
+        isCorrect: true,
+      },
+      {
+        text: "<meta>",
+        rationale:
+          "The `<meta>` tag is used *inside* the `<head>` to specify metadata, but the `<head>` element contains all metadata.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This section is always placed before the visible content of the page.",
+  },
+  {
+    id: 4,
+    topic: "HTML",
+    question: "Which HTML tag is used to display an image on a web page?",
+    answerOptions: [
+      {
+        text: "<picture>",
+        rationale:
+          "The `<picture>` element is used for responsive images, but the `<img>` tag is required to display the image itself.",
+        isCorrect: false,
+      },
+      {
+        text: '<img src="url">',
+        rationale:
+          "The `<img>` tag is used for images and requires the `src` attribute to specify the source file.",
+        isCorrect: true,
+      },
+      {
+        text: "<image>",
+        rationale: "`<image>` is not the correct standard HTML tag.",
+        isCorrect: false,
+      },
+      {
+        text: "<source>",
+        rationale:
+          "The `<source>` tag is used inside `<audio>`, `<video>`, and `<picture>` elements to define media resources.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This is a self-closing (void) tag.",
+  },
+  {
+    id: 5,
+    topic: "HTML",
+    question:
+      "What does the mandatory `alt` attribute in the `<img>` tag provide?",
+    answerOptions: [
+      {
+        text: "The width and height dimensions of the image.",
+        rationale:
+          "Dimensions are set using the `width` and `height` attributes.",
+        isCorrect: false,
+      },
+      {
+        text: "A brief description of the image for screen readers and when the image fails to load.",
+        rationale:
+          "The `alt` (alternative text) attribute is crucial for accessibility and provides text fallback.",
+        isCorrect: true,
+      },
+      {
+        text: "A URL for a higher-resolution version of the image.",
+        rationale:
+          "Higher-resolution images are typically handled by `srcset` or the `<picture>` element.",
+        isCorrect: false,
+      },
+      {
+        text: "A tooltip that appears when the user hovers over the image.",
+        rationale: "This function is handled by the `title` attribute.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This is vital for users who cannot see the image.",
+  },
+  {
+    id: 6,
+    topic: "HTML",
+    question:
+      "Which HTML tag is used to create a numbered list (list with items preceded by numbers)?",
+    answerOptions: [
+      {
+        text: "<ul>",
+        rationale: "The `<ul>` (unordered list) tag creates a bulleted list.",
+        isCorrect: false,
+      },
+      {
+        text: "<dl>",
+        rationale:
+          "The `<dl>` (description list) tag is for terms and definitions.",
+        isCorrect: false,
+      },
+      {
+        text: "<list>",
+        rationale: "`<list>` is not a standard HTML element.",
+        isCorrect: false,
+      },
+      {
+        text: "<ol>",
+        rationale:
+          "The `<ol>` (ordered list) tag creates a list where items are typically marked by ascending numbers.",
         isCorrect: true,
       },
     ],
-    hint: "Block elements typically force a line break before and after them.",
+    hint: "This list type is for sequencing steps or items.",
+  },
+  {
+    id: 7,
+    topic: "HTML",
+    question: "Which HTML element defines a paragraph of text?",
+    answerOptions: [
+      {
+        text: "<para>",
+        rationale: "`<para>` is not a standard HTML element.",
+        isCorrect: false,
+      },
+      {
+        text: "<p>",
+        rationale:
+          "The `<p>` tag is the correct and standard element for a paragraph.",
+        isCorrect: true,
+      },
+      {
+        text: "<text>",
+        rationale: "`<text>` is not a standard HTML element.",
+        isCorrect: false,
+      },
+      {
+        text: "<br>",
+        rationale:
+          "The `<br>` tag is for a single line break, not a paragraph block.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This element is a block-level container for a block of prose.",
   },
   {
     id: 8,
     topic: "HTML",
     question:
-      "How do you specify multiple video sources for different browsers within a <video> element?",
+      "Which attribute of the `<a>` tag specifies the destination URL of the link?",
     answerOptions: [
       {
-        text: "By using the `fallback` attribute with comma-separated sources.",
+        text: "src",
         rationale:
-          "There is no standard `fallback` attribute for this purpose; multiple `<source>` elements are used instead.",
+          "`src` is used for external resources like images or scripts.",
         isCorrect: false,
       },
       {
-        text: "By using multiple <source> elements inside the <video> element.",
+        text: "link",
         rationale:
-          "Multiple `<source>` elements allow the browser to choose the first source it supports.",
-        isCorrect: true,
-      },
-      {
-        text: "By adding multiple `src` attributes to the `<video>` tag.",
-        rationale:
-          "The `src` attribute is singular and only allows one source; the `<source>` tag is necessary for multiple options.",
-        isCorrect: false,
-      },
-      {
-        text: "By using CSS `@media` queries to select the correct video file.",
-        rationale:
-          "Media queries are for styling based on device characteristics, not for selecting video sources.",
-        isCorrect: false,
-      },
-    ],
-    hint: "The container element allows for fallback mechanisms for media files.",
-  },
-  {
-    id: 9,
-    topic: "HTML",
-    question:
-      "Which HTML input type is best suited for collecting an email address?",
-    answerOptions: [
-      {
-        text: "text",
-        rationale:
-          "The `text` type is generic and does not offer the built-in validation of the `email` type.",
+          "The `link` attribute is not used on the anchor tag for the URL.",
         isCorrect: false,
       },
       {
         text: "url",
-        rationale: "The `url` type is for web addresses, not email addresses.",
+        rationale: "`url` is not a standard attribute for this purpose.",
         isCorrect: false,
       },
       {
-        text: "email",
+        text: "href",
         rationale:
-          "The `email` input type automatically provides client-side validation for a correctly formatted email address.",
+          "The `href` (Hypertext Reference) attribute is required to define the destination address of the link.",
         isCorrect: true,
       },
+    ],
+    hint: "The name stands for 'Hypertext Reference'.",
+  },
+  {
+    id: 9,
+    topic: "HTML",
+    question: "What is the correct syntax for a comment in HTML?",
+    answerOptions: [
       {
-        text: "address",
-        rationale: "`address` is not a standard HTML input type.",
+        text: "// This is a comment",
+        rationale: "This is JavaScript syntax for a single-line comment.",
         isCorrect: false,
       },
+      {
+        text: "/* This is a comment */",
+        rationale: "This is CSS or multi-line JavaScript comment syntax.",
+        isCorrect: false,
+      },
+      {
+        text: "",
+        rationale: "This syntax is slightly incorrect and outdated.",
+        isCorrect: false,
+      },
+      {
+        text: "",
+        rationale:
+          "This is the correct syntax for an HTML comment, which is not rendered by the browser.",
+        isCorrect: true,
+      },
     ],
-    hint: "This type offers built-in validation features directly in the browser.",
+    hint: "HTML comments start with `<!-` and end with `->`.",
   },
   {
     id: 10,
     topic: "HTML",
-    question: 'What is the purpose of the <meta charset="UTF-8"> tag?',
+    question:
+      "Which attribute is used to provide a CSS class name to an element?",
     answerOptions: [
       {
-        text: "To set the default text size for the document.",
-        rationale:
-          "Text size is controlled by CSS, typically via the `font-size` property.",
+        text: "id",
+        rationale: "`id` provides a single, unique identifier for an element.",
         isCorrect: false,
       },
       {
-        text: "To define the character encoding for the HTML document.",
+        text: "style",
+        rationale: "`style` is used for inline CSS, not class names.",
+        isCorrect: false,
+      },
+      {
+        text: "class",
         rationale:
-          "UTF-8 is the universally recommended character encoding for most web pages, and this tag specifies it.",
+          "The `class` attribute is used to assign one or more class names for styling or scripting purposes.",
         isCorrect: true,
       },
       {
-        text: "To specify the author of the HTML document.",
-        rationale:
-          'The author is typically specified using a different meta tag, like `<meta name="author" content="...">` .',
-        isCorrect: false,
-      },
-      {
-        text: "To enable responsive design by setting the viewport.",
-        rationale:
-          "The viewport is configured with a separate meta tag, often containing `width=device-width`.",
+        text: "tag",
+        rationale: "`tag` is not a standard HTML attribute for styling.",
         isCorrect: false,
       },
     ],
-    hint: "This is essential for proper display of international characters.",
+    hint: "This attribute allows multiple elements to share the same styling rules.",
   },
   {
     id: 11,
     topic: "HTML",
     question:
-      "Which semantic element is typically used to represent a self-contained, independent piece of content, such as a blog post or news story?",
+      "What is the purpose of the `<body>` element in an HTML document?",
     answerOptions: [
       {
-        text: "<section>",
+        text: "To link external scripts and CSS files.",
         rationale:
-          "A `<section>` is a generic grouping of content; `<article>` is more specific for independent content.",
+          "Linking external resources is primarily done within the `<head>` element.",
         isCorrect: false,
       },
       {
-        text: "<aside>",
+        text: "To define the character encoding and viewport settings.",
         rationale:
-          "The `<aside>` element is for content related to the surrounding content but should be considered separate, like a sidebar or pull quote.",
+          "These are meta-data tasks handled within the `<head>` element.",
         isCorrect: false,
       },
       {
-        text: "<article>",
+        text: "To contain all the content (text, images, links) that is visible to the user.",
         rationale:
-          "The `<article>` element is appropriate for content that could be distributed independently of the rest of the site.",
+          "The `<body>` element is the container for the document's content.",
         isCorrect: true,
       },
       {
-        text: "<main>",
+        text: "To declare global JavaScript variables.",
         rationale:
-          "The `<main>` element contains the dominant content of the document, which may contain multiple `<article>` elements.",
+          "JavaScript declarations are typically done within `<script>` tags.",
         isCorrect: false,
       },
     ],
-    hint: "Consider content that could stand on its own in an RSS feed or on another site.",
+    hint: "This is the visible part of the webpage.",
   },
   {
     id: 12,
     topic: "HTML",
-    question:
-      "What is the correct structure for a description list (definition list) in HTML?",
+    question: "How many levels of section headings does HTML provide?",
     answerOptions: [
       {
-        text: "<ul> with <li> and <def>",
-        rationale:
-          "`<ul>` is for unordered lists, and `<def>` is not a standard list element.",
+        text: "Four, from `<h1>` to `<h4>`.",
+        rationale: "HTML provides two more levels.",
         isCorrect: false,
       },
       {
-        text: "<ol> with <li> and <dd>",
-        rationale:
-          "`<ol>` is for ordered lists, which is not the correct semantic element here.",
+        text: "Five, from `<h1>` to `<h5>`.",
+        rationale: "HTML provides one more level.",
         isCorrect: false,
       },
       {
-        text: "<dl> with <dt> for the term and <dd> for the description.",
+        text: "Six, from `<h1>` to `<h6>`.",
         rationale:
-          "The Description List (`<dl>`) contains a list of terms (`<dt>`) and their descriptions (`<dd>`).",
+          "HTML defines six levels of headings to define the hierarchy of a document structure.",
         isCorrect: true,
       },
       {
-        text: "<list> with <term> and <description>",
-        rationale:
-          "These are not the correct standard HTML tags for a definition list.",
+        text: "Unlimited levels, using the `<heading>` tag.",
+        rationale: "The number is fixed at six, and the tag is `<h1>`-`<h6>`.",
         isCorrect: false,
       },
     ],
-    hint: "This list type is used for associating names with values.",
+    hint: "The lowest heading level is represented by the number six.",
   },
   {
     id: 13,
     topic: "HTML",
-    question:
-      "What is a global attribute that specifies an element's custom data?",
+    question: "Which of the following is a self-closing (void) tag?",
     answerOptions: [
       {
-        text: "id",
+        text: "<div>",
         rationale:
-          "The `id` attribute is for providing a unique identifier for an element, not for custom data storage.",
+          "`<div>` is a container tag that requires a closing tag (`</div>`).",
         isCorrect: false,
       },
       {
-        text: "data-*",
+        text: "<p>",
         rationale:
-          "The `data-*` attributes are a class of attributes that allow you to store extra information on standard HTML elements.",
+          "`<p>` is a container tag that requires a closing tag (`</p>`).",
+        isCorrect: false,
+      },
+      {
+        text: "<br>",
+        rationale:
+          "The `<br>` (line break) tag is a void element that does not require a closing tag.",
         isCorrect: true,
       },
       {
-        text: "custom",
-        rationale: "`custom` is not a standard global attribute prefix.",
-        isCorrect: false,
-      },
-      {
-        text: "attribute",
+        text: "<a>",
         rationale:
-          "This is a generic term, not a specific attribute for custom data.",
+          "The `<a>` (anchor) tag requires a closing tag (`</a>`) to wrap content.",
         isCorrect: false,
       },
     ],
-    hint: "This attribute is used to embed proprietary data, often manipulated by JavaScript.",
+    hint: "This element is used to insert a line break without having any content itself.",
   },
   {
     id: 14,
     topic: "HTML",
-    question:
-      "Which form attribute dictates where the form data will be sent upon submission?",
+    question: "What is the function of the HTML5 semantic element `<section>`?",
     answerOptions: [
       {
-        text: "method",
-        rationale:
-          "The `method` attribute specifies the HTTP method (GET or POST) used to send the data, not the destination URL.",
+        text: "To define the main navigation links for a document.",
+        rationale: "This is the role of the `<nav>` element.",
         isCorrect: false,
       },
       {
-        text: "name",
-        rationale:
-          "The `name` attribute is used to identify the form or its controls within the submitted data.",
+        text: "To represent a self-contained, independent piece of content (like a blog post).",
+        rationale: "This is the role of the `<article>` element.",
         isCorrect: false,
       },
       {
-        text: "action",
+        text: "To group related content, typically with a heading, forming a thematic grouping.",
         rationale:
-          "The `action` attribute specifies the URL or path to the server-side script that will process the form submission.",
+          "The `<section>` element groups content that belongs together conceptually.",
         isCorrect: true,
       },
       {
-        text: "target",
-        rationale:
-          "The `target` attribute specifies where to display the response received after submitting the form.",
+        text: "To display content that is tangentially related to the main content (like a sidebar).",
+        rationale: "This is the role of the `<aside>` element.",
         isCorrect: false,
       },
     ],
-    hint: "This determines the destination of the submitted data.",
+    hint: "Think of it as creating a chapter or major division within your page.",
   },
   {
     id: 15,
     topic: "HTML",
-    question: "How many levels of headings does HTML provide?",
+    question:
+      "Which tag is specifically used to define the title that appears in the browser tab or window, but is not visible in the document body?",
     answerOptions: [
       {
-        text: "Three, from <h1> to <h3>.",
+        text: "<h1>",
         rationale:
-          "HTML provides more than three levels of headings for document structure.",
+          "The `<h1>` tag is the main visible heading in the document body.",
         isCorrect: false,
       },
       {
-        text: "Six, from <h1> to <h6>.",
+        text: "<head>",
         rationale:
-          "HTML defines six heading levels, where `<h1>` is the most important and `<h6>` is the least important.",
+          "The `<head>` element contains this tag, but it is not the tag itself.",
+        isCorrect: false,
+      },
+      {
+        text: '<meta name="title">',
+        rationale:
+          "The `<meta>` tag is for general metadata; the `<title>` tag is specific for the tab title.",
+        isCorrect: false,
+      },
+      {
+        text: "<title>",
+        rationale:
+          "The `<title>` element, placed inside `<head>`, sets the title for the browser tab/window.",
         isCorrect: true,
       },
-      {
-        text: "Five, from <h1> to <h5>.",
-        rationale: "HTML includes a sixth heading level, `<h6>`.",
-        isCorrect: false,
-      },
-      {
-        text: "Four, from <h1> to <h4>.",
-        rationale: "HTML includes two more heading levels, `<h5>` and `<h6>`.",
-        isCorrect: false,
-      },
     ],
-    hint: "The structure for document hierarchy is quite well-defined.",
+    hint: "This element is critical for bookmarks and search engine results.",
   },
   {
     id: 16,
     topic: "HTML",
-    question: "What is the purpose of the HTML Web Workers API?",
+    question:
+      "What is the correct way to include an external CSS file named `style.css` in an HTML document?",
     answerOptions: [
       {
-        text: "To enable asynchronous communication with a server.",
+        text: '<style src="style.css">',
         rationale:
-          "This is handled by technologies like Fetch or XMLHttpRequest.",
+          "The `<style>` tag is for inline CSS; the correct tag is `<link>`.",
         isCorrect: false,
       },
       {
-        text: "To allow scripts to run heavy computational tasks in a separate background thread.",
+        text: '<css rel="stylesheet" href="style.css">',
+        rationale: "`<css>` is not a standard HTML element.",
+        isCorrect: false,
+      },
+      {
+        text: '<link rel="stylesheet" href="style.css">',
         rationale:
-          "Web Workers execute code in an isolated thread, preventing the main thread (UI) from freezing.",
+          'The `<link>` tag with `rel="stylesheet"` and `href` correctly links an external CSS file.',
         isCorrect: true,
       },
       {
-        text: "To create new windows or tabs in the browser.",
-        rationale: "This is handled by the `window.open()` method.",
-        isCorrect: false,
-      },
-      {
-        text: "To securely store large amounts of client-side data.",
-        rationale: "This is handled by IndexDB or Web Storage.",
+        text: '<script link="style.css">',
+        rationale: "The `<script>` tag is used for JavaScript.",
         isCorrect: false,
       },
     ],
-    hint: "Think about offloading complex calculations from the main thread.",
+    hint: "The tag used is also a self-closing (void) tag.",
   },
   {
     id: 17,
     topic: "HTML",
     question:
-      "Which HTML attribute can be added to a form input to automatically receive focus when the page loads?",
+      "Which HTML element is a generic **block-level** container used for grouping and styling content?",
     answerOptions: [
       {
-        text: "focus",
-        rationale: "`focus` is a CSS pseudo-class, not an HTML attribute.",
-        isCorrect: false,
-      },
-      {
-        text: "autofill",
-        rationale: "`autofill` relates to browser history and saving data.",
-        isCorrect: false,
-      },
-      {
-        text: "autofocus",
+        text: "<span>",
         rationale:
-          "The `autofocus` boolean attribute specifies that an element should automatically get focus when the page is loaded.",
+          "The `<span>` element is a generic **inline-level** container.",
+        isCorrect: false,
+      },
+      {
+        text: "<i>",
+        rationale: "The `<i>` element is inline-level for italic text.",
+        isCorrect: false,
+      },
+      {
+        text: "<div>",
+        rationale:
+          "The `<div>` (division) element is the standard, generic block-level container.",
         isCorrect: true,
       },
       {
-        text: 'tabindex="0"',
-        rationale:
-          "`tabindex` manages keyboard navigation order, but does not force focus on load.",
+        text: "<b>",
+        rationale: "The `<b>` element is inline-level for bold text.",
         isCorrect: false,
       },
     ],
-    hint: 'It is a boolean attribute that starts with "auto".',
+    hint: "This element typically starts on a new line and takes up the full available width.",
   },
   {
     id: 18,
     topic: "HTML",
-    question: "The `<picture>` element is primarily used for what purpose?",
+    question:
+      "The HTML standard is currently maintained and developed by which organization?",
     answerOptions: [
       {
-        text: "To display video files with multiple quality options.",
+        text: "CERN (European Organization for Nuclear Research)",
         rationale:
-          "Video files use the `<video>` element with nested `<source>` tags.",
+          "CERN is where HTML was invented, but the W3C maintains the standard.",
         isCorrect: false,
       },
       {
-        text: "To enable lazy loading of images for performance.",
+        text: "Google (Alphabet Inc.)",
         rationale:
-          "Lazy loading is usually handled by the `loading` attribute or JavaScript.",
+          "Google is a major contributor, but not the maintaining body.",
         isCorrect: false,
       },
       {
-        text: "To provide responsive image handling based on viewport size or device capabilities.",
+        text: "W3C (World Wide Web Consortium)",
         rationale:
-          "The `<picture>` element works with `<source>` tags to allow the browser to pick the best image source based on media queries.",
+          "The W3C is the organization responsible for developing and maintaining the HTML specifications.",
         isCorrect: true,
       },
       {
-        text: "To render vector graphics using XML syntax.",
-        rationale: "Vector graphics are handled by the `<svg>` element.",
+        text: "The DHIS2 Design Lab",
+        rationale:
+          "The DHIS2 Design Lab creates resources for DHIS2, not the universal HTML standard.",
         isCorrect: false,
       },
     ],
-    hint: "It helps the browser choose the best image for the current screen size.",
+    hint: "This organization manages web standards globally.",
   },
   {
     id: 19,
     topic: "HTML",
-    question: "What is the main difference between SVG and Canvas?",
+    question: "Which of the following is NOT an HTML5 semantic element?",
     answerOptions: [
       {
-        text: "SVG is for 3D graphics, and Canvas is for 2D graphics.",
-        rationale:
-          "Both can handle 2D, and 3D graphics are typically done with WebGL (often using Canvas).",
+        text: "<header>",
+        rationale: "The `<header>` element is semantic.",
         isCorrect: false,
       },
       {
-        text: "SVG is text-based and resolution-independent, while Canvas draws pixel-based images.",
+        text: "<figure>",
         rationale:
-          "SVG is vector-based (XML) and scales without quality loss; Canvas is a raster (pixel) drawing surface.",
+          "The `<figure>` element is semantic (for self-contained content like diagrams/photos).",
+        isCorrect: false,
+      },
+      {
+        text: "<nav>",
+        rationale: "The `<nav>` element is semantic.",
+        isCorrect: false,
+      },
+      {
+        text: "<center>",
+        rationale:
+          "The `<center>` tag is deprecated and not a semantic element; layout should be handled by CSS.",
         isCorrect: true,
       },
-      {
-        text: "SVG is only supported in modern browsers, while Canvas has broad legacy support.",
-        rationale: "Both have similar levels of modern browser support.",
-        isCorrect: false,
-      },
-      {
-        text: "SVG is best for animation, and Canvas is best for static images.",
-        isCorrect: false,
-        rationale:
-          "Canvas is generally better for complex, fast-paced animations (like games).",
-      },
     ],
-    hint: "One is vector graphics defined by math; the other is a pixel grid.",
+    hint: "One of these tags is outdated and purely presentational.",
   },
   {
     id: 20,
     topic: "HTML",
     question:
-      "Which attribute can be used on an `<input>` element to prevent a form from being submitted unless a value is provided?",
+      "What is the correct tag for making text strongly important or serious?",
     answerOptions: [
       {
-        text: "check",
+        text: "<b>",
         rationale:
-          "`check` is not a standard attribute for client-side required validation.",
+          "The `<b>` tag is presentational (bold); `<strong>` is semantic.",
         isCorrect: false,
       },
       {
-        text: "validate",
-        rationale: "`validate` is not a standard HTML attribute.",
+        text: "<em>",
+        rationale: "The `<em>` tag is for emphasis (e.g., italics).",
         isCorrect: false,
       },
       {
-        text: "required",
+        text: "<strong>",
         rationale:
-          "The `required` boolean attribute forces the browser to check that the input field is not empty before submitting the form.",
+          "The `<strong>` tag semantically indicates strong importance.",
         isCorrect: true,
       },
       {
-        text: "non-empty",
-        rationale: "`non-empty` is not a standard HTML attribute.",
+        text: "<bold>",
+        rationale: "`<bold>` is not a standard HTML element.",
         isCorrect: false,
       },
     ],
-    hint: "This is a simple boolean attribute for basic form checking.",
+    hint: "This element conveys meaning to assistive technologies, not just visual style.",
   },
-
-  // ------------------------------------
-  // --- CSS QUESTIONS (IDs 21 - 40) ---
-  // ------------------------------------
   {
     id: 21,
-    topic: "CSS",
+    topic: "HTML",
     question:
-      "Which selector targets all `p` elements that are direct children of a `div` element?",
+      "Which attribute is used to provide inline CSS styles directly on an HTML element?",
     answerOptions: [
       {
-        text: "div p",
-        rationale:
-          "This is the descendant combinator, which selects all `p` elements *anywhere* inside a `div`.",
+        text: "css",
+        rationale: "`css` is not a standard HTML attribute.",
         isCorrect: false,
       },
       {
-        text: "div > p",
+        text: "class",
+        rationale: "`class` links to external or internal CSS rules.",
+        isCorrect: false,
+      },
+      {
+        text: "style",
         rationale:
-          "The `>` symbol is the child combinator, selecting elements that are direct children of the first element.",
+          "The `style` attribute allows for the inclusion of CSS properties directly within the opening tag of an element.",
         isCorrect: true,
       },
       {
-        text: "div ~ p",
-        rationale: "This is the general sibling combinator.",
-        isCorrect: false,
-      },
-      {
-        text: "div + p",
-        rationale: "This is the adjacent sibling combinator.",
+        text: "format",
+        rationale: "`format` is not a standard HTML attribute for styling.",
         isCorrect: false,
       },
     ],
-    hint: "The key here is the *direct* relationship between the two elements.",
+    hint: "This method of styling is generally discouraged in large projects.",
   },
   {
     id: 22,
-    topic: "CSS",
+    topic: "HTML",
     question:
-      "What is the correct order of CSS Box Model properties from the inside out?",
+      "Which HTML element is used to insert a piece of code written in JavaScript into the document?",
     answerOptions: [
       {
-        text: "Content, Margin, Border, Padding",
-        rationale:
-          "Padding is inside the border, and margin is outside the border.",
+        text: "<javascript>",
+        rationale: "`<javascript>` is not a standard HTML element.",
         isCorrect: false,
       },
       {
+        text: "<link>",
+        rationale:
+          "The `<link>` tag is for linking external resources like CSS.",
+        isCorrect: false,
+      },
+      {
+        text: "<script>",
+        rationale:
+          "The `<script>` tag is used to embed or reference executable code, typically JavaScript.",
+        isCorrect: true,
+      },
+      {
+        text: "<embed>",
+        rationale:
+          "The `<embed>` tag is used to embed external applications or interactive content.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This element is often placed near the end of the `<body>` for performance.",
+  },
+  {
+    id: 23,
+    topic: "HTML",
+    question:
+      "What is the difference between a block-level element (like `<div>`) and an inline-level element (like `<span>`)?",
+    answerOptions: [
+      {
+        text: "Block-level elements can contain other elements, while inline elements cannot.",
+        rationale:
+          "Both can contain other elements (though with context rules), but this isn't the primary difference.",
+        isCorrect: false,
+      },
+      {
+        text: "Inline elements start on a new line, and block-level elements flow next to each other.",
+        rationale: "This statement is the opposite of the truth.",
+        isCorrect: false,
+      },
+      {
+        text: "Block-level elements start on a new line and take up the full available width; inline elements only take up as much width as necessary.",
+        rationale:
+          "This defines the default display behavior for the two types of elements.",
+        isCorrect: true,
+      },
+      {
+        text: "Block-level elements are for styling, and inline elements are for content.",
+        rationale: "Both are used for structure and content.",
+        isCorrect: false,
+      },
+    ],
+    hint: "The difference is how they interact with their surrounding space and line breaks.",
+  },
+  {
+    id: 24,
+    topic: "HTML",
+    question:
+      "Which HTML tag is used to define an item within an ordered or unordered list?",
+    answerOptions: [
+      {
+        text: "<item>",
+        rationale: "`<item>` is not a standard HTML element.",
+        isCorrect: false,
+      },
+      {
+        text: "<list-item>",
+        rationale: "`<list-item>` is not a standard HTML element.",
+        isCorrect: false,
+      },
+      {
+        text: "<li>",
+        rationale:
+          "The `<li>` (list item) tag is used inside `<ol>`, `<ul>`, and `<menu>` elements.",
+        isCorrect: true,
+      },
+      {
+        text: "<dl>",
+        rationale: "The `<dl>` tag defines the description list itself.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This tag means 'list item'.",
+  },
+  {
+    id: 25,
+    topic: "HTML",
+    question: "What does the abbreviation HTML stand for?",
+    answerOptions: [
+      {
+        text: "Hyperlink Text Management Language",
+        rationale:
+          "This is incorrect; the term is 'HyperText Markup Language'.",
+        isCorrect: false,
+      },
+      {
+        text: "High Technology Modern Language",
+        rationale:
+          "This is incorrect; the term is 'HyperText Markup Language'.",
+        isCorrect: false,
+      },
+      {
+        text: "HyperText Markup Language",
+        rationale:
+          "HTML stands for HyperText Markup Language, defining its purpose as a markup system for hypertext documents.",
+        isCorrect: true,
+      },
+      {
+        text: "Home Tool Markup Language",
+        rationale:
+          "This is incorrect; the term is 'HyperText Markup Language'.",
+        isCorrect: false,
+      },
+    ],
+    hint: "Focus on the 'Markup' part, indicating it's a language of tags.",
+  },
+  {
+    id: 26,
+    topic: "HTML",
+    question:
+      "Which attribute on an `<img>` tag specifies the path to the image file?",
+    answerOptions: [
+      {
+        text: "link",
+        rationale: "`link` is used on the `<link>` tag.",
+        isCorrect: false,
+      },
+      {
+        text: "path",
+        rationale: "`path` is not a standard HTML attribute.",
+        isCorrect: false,
+      },
+      {
+        text: "href",
+        rationale: "`href` is used for hyperlinks on the `<a>` tag.",
+        isCorrect: false,
+      },
+      {
+        text: "src",
+        rationale:
+          "The `src` (source) attribute specifies the URL or file path for the image.",
+        isCorrect: true,
+      },
+    ],
+    hint: "This attribute is short for 'source'.",
+  },
+  {
+    id: 27,
+    topic: "HTML",
+    question:
+      "Which set of tags is used to define an input field for text within a form?",
+    answerOptions: [
+      {
+        text: "<textinput>",
+        rationale: "`<textinput>` is not a standard HTML element.",
+        isCorrect: false,
+      },
+      {
+        text: '<input type="text">',
+        rationale:
+          'The `<input>` tag is the standard for form controls, and `type="text"` specifies a simple text field.',
+        isCorrect: true,
+      },
+      {
+        text: '<field type="text">',
+        rationale: "`<field>` is not a standard HTML element for this purpose.",
+        isCorrect: false,
+      },
+      {
+        text: "<label>",
+        rationale:
+          "The `<label>` tag provides a caption for a form control, but is not the control itself.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This element is a void tag used inside the `<form>`.",
+  },
+  {
+    id: 28,
+    topic: "HTML",
+    question:
+      "The HTML document structure must begin with which declaration to specify the HTML version?",
+    answerOptions: [
+      {
+        text: "<html>",
+        rationale:
+          "The `<html>` tag is the root element, not the version declaration.",
+        isCorrect: false,
+      },
+      {
+        text: "<!DOCTYPE HTML5>",
+        rationale: "This syntax is close but slightly incorrect for HTML5.",
+        isCorrect: false,
+      },
+      {
+        text: "<!DOCTYPE html>",
+        rationale:
+          "This declaration is used for HTML5 and must be the very first thing in the document.",
+        isCorrect: true,
+      },
+      {
+        text: '<meta name="version" content="HTML5">',
+        rationale: "This is metadata and not the required initial declaration.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This declaration is short and case-insensitive.",
+  },
+  {
+    id: 29,
+    topic: "HTML",
+    question:
+      "The primary role of **JavaScript** in a web application, according to the course overview, is to provide:",
+    answerOptions: [
+      {
+        text: "Structure and content organization.",
+        rationale: "This is the role of HTML.",
+        isCorrect: false,
+      },
+      {
+        text: "Styling and presentation.",
+        rationale: "This is the role of CSS.",
+        isCorrect: false,
+      },
+      {
+        text: "Interactivity and dynamic behavior.",
+        rationale:
+          "The course explicitly states JavaScript is used to 'add interactivity to otherwise static web sites'.",
+        isCorrect: true,
+      },
+      {
+        text: "Server-side data processing.",
+        rationale:
+          "JavaScript *can* do this (Node.js), but in the front-end course context, it's about client-side interactivity.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This language is often called the 'behavior' layer of the web.",
+  },
+  {
+    id: 30,
+    topic: "HTML",
+    question:
+      "Which HTML element is used to group form controls and their labels (typically using `<fieldset>` as a container)?",
+    answerOptions: [
+      {
+        text: "<section>",
+        rationale: "`<section>` is a general structural element.",
+        isCorrect: false,
+      },
+      {
+        text: "<formgroup>",
+        rationale: "`<formgroup>` is not a standard HTML element.",
+        isCorrect: false,
+      },
+      {
+        text: "<legend>",
+        rationale:
+          "The `<legend>` element is used to provide a caption for the grouping, but the `<fieldset>` element provides the actual grouping container.",
+        isCorrect: false,
+      },
+      {
+        text: "<fieldset>",
+        rationale:
+          "The `<fieldset>` element draws a box around a logical grouping of form controls.",
+        isCorrect: true,
+      },
+    ],
+    hint: "This element helps users visually and semantically group related input fields.",
+  },
+  {
+    id: 31,
+    topic: "HTML",
+    question:
+      "Which HTML element is typically used to create an input field where the user selects a date from a calendar interface?",
+    answerOptions: [
+      {
+        text: '<input type="calendar">',
+        rationale:
+          '`type="calendar"` is not a standard type; `date` is used instead.',
+        isCorrect: false,
+      },
+      {
+        text: '<select type="date">',
+        rationale: "`<select>` is for dropdown menus, not calendar inputs.",
+        isCorrect: false,
+      },
+      {
+        text: '<input type="date">',
+        rationale:
+          'The `type="date"` value for the `<input>` element provides a date-picking interface.',
+        isCorrect: true,
+      },
+      {
+        text: "<dateinput>",
+        rationale: "`<dateinput>` is not a standard HTML element.",
+        isCorrect: false,
+      },
+    ],
+    hint: "The input type is straightforward and descriptive.",
+  },
+  {
+    id: 32,
+    topic: "HTML",
+    question:
+      "The primary semantic difference between the `<i>` and `<em>` tags is:",
+    answerOptions: [
+      {
+        text: "There is no difference; both are deprecated in HTML5.",
+        rationale: "`<em>` is semantic and not deprecated.",
+        isCorrect: false,
+      },
+      {
+        text: "`<i>` is for emphasis (semantic), and `<em>` is for italics (presentational).",
+        rationale: "This is the opposite of the semantic definition.",
+        isCorrect: false,
+      },
+      {
+        text: "`<i>` is for technical or foreign terms (presentational/idiomatic), and `<em>` is for emphasis (semantic).",
+        rationale:
+          "In HTML5, `<i>` is used for text to be set off from the normal prose, while `<em>` conveys importance/stress.",
+        isCorrect: true,
+      },
+      {
+        text: "`<i>` is for bold text, and `<em>` is for underline.",
+        rationale: "`<i>` is for italics and `<em>` provides emphasis.",
+        isCorrect: false,
+      },
+    ],
+    hint: "Which one tells a screen reader or search engine that the text is important?",
+  },
+  {
+    id: 33,
+    topic: "HTML",
+    question:
+      "What is the purpose of the `novalidate` attribute on the `<form>` element?",
+    answerOptions: [
+      {
+        text: "It forces the browser to only accept numeric inputs.",
+        rationale: "This is controlled by input `type` attributes.",
+        isCorrect: false,
+      },
+      {
+        text: "It skips server-side validation and sends data directly to the database.",
+        rationale:
+          "This attribute only affects client-side validation; server-side validation is still necessary.",
+        isCorrect: false,
+      },
+      {
+        text: "It prevents the browser from performing automatic client-side form validation.",
+        rationale:
+          "The `novalidate` attribute allows developers to handle validation entirely with client-side JavaScript.",
+        isCorrect: true,
+      },
+      {
+        text: "It ensures all form inputs must be filled out before submission.",
+        rationale: "The `required` attribute enforces this.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This attribute gives control over the error checking process back to JavaScript.",
+  },
+  {
+    id: 34,
+    topic: "HTML",
+    question:
+      "Which tag is used to create a caption or title for an HTML `<table>`?",
+    answerOptions: [
+      {
+        text: "<head>",
+        rationale: "The `<head>` element is for document metadata.",
+        isCorrect: false,
+      },
+      {
+        text: "<thead>",
+        rationale:
+          "The `<thead>` element defines the set of table rows forming the header.",
+        isCorrect: false,
+      },
+      {
+        text: "<caption>",
+        rationale:
+          "The `<caption>` tag is specifically used to define the title of a table, placed immediately after the `<table>` tag.",
+        isCorrect: true,
+      },
+      {
+        text: "<title>",
+        rationale:
+          "The `<title>` tag defines the document title, not a table caption.",
+        isCorrect: false,
+      },
+    ],
+    hint: "The name is a simple, singular noun.",
+  },
+  {
+    id: 35,
+    topic: "HTML",
+    question:
+      "What is the correct way to set the width of an image element to 300 pixels using only HTML attributes?",
+    answerOptions: [
+      {
+        text: '<img style="width: 300px;">',
+        rationale:
+          "This uses the `style` attribute, which is CSS, not a pure HTML width attribute.",
+        isCorrect: false,
+      },
+      {
+        text: '<img size="300">',
+        rationale: "`size` is not the correct HTML attribute for this purpose.",
+        isCorrect: false,
+      },
+      {
+        text: '<img width="300px">',
+        rationale:
+          "The standard HTML `width` attribute should only contain the numeric value (pixels are assumed).",
+        isCorrect: false,
+      },
+      {
+        text: '<img width="300">',
+        rationale:
+          "The `width` attribute specifies the width in pixels, without the 'px' unit.",
+        isCorrect: true,
+      },
+    ],
+    hint: "When using the dedicated HTML attribute, the unit is implied.",
+  },
+  {
+    id: 36,
+    topic: "HTML",
+    question:
+      "Which element is used to render multi-line text input within a form?",
+    answerOptions: [
+      {
+        text: '<input type="textarea">',
+        rationale: 'There is no `type="textarea"` for the `<input>` tag.',
+        isCorrect: false,
+      },
+      {
+        text: "<textarea>",
+        rationale:
+          "The `<textarea>` element is specifically designed for entering larger amounts of text over multiple lines.",
+        isCorrect: true,
+      },
+      {
+        text: '<input type="text" lines="5">',
+        rationale: 'The `type="text"` input is for single-line input.',
+        isCorrect: false,
+      },
+      {
+        text: "<textmultiline>",
+        rationale: "`<textmultiline>` is not a standard HTML element.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This element requires both an opening and a closing tag.",
+  },
+  {
+    id: 37,
+    topic: "HTML",
+    question:
+      "What is the HTML element used to include an audio file in a document?",
+    answerOptions: [
+      {
+        text: "<sound>",
+        rationale: "`<sound>` is not a standard HTML element.",
+        isCorrect: false,
+      },
+      {
+        text: '<media type="audio">',
+        rationale: "`<media>` is not a standard HTML element.",
+        isCorrect: false,
+      },
+      {
+        text: "<embed>",
+        rationale:
+          "The `<embed>` tag is generic for external applications, but `<audio>` is preferred for sound files.",
+        isCorrect: false,
+      },
+      {
+        text: "<audio>",
+        rationale:
+          "The `<audio>` element is the standard HTML5 element for embedding sound content.",
+        isCorrect: true,
+      },
+    ],
+    hint: "The name is a simple, clear noun.",
+  },
+  {
+    id: 38,
+    topic: "HTML",
+    question:
+      "Which attribute on the `<script>` tag is used to ensure the script is executed after the document has been fully parsed?",
+    answerOptions: [
+      {
+        text: "async",
+        rationale:
+          "`async` causes the script to be executed as soon as it is loaded, potentially before parsing is complete.",
+        isCorrect: false,
+      },
+      {
+        text: "defer",
+        rationale:
+          "The `defer` attribute ensures the script is downloaded in parallel but executed only after the document has been parsed.",
+        isCorrect: true,
+      },
+      {
+        text: "late",
+        rationale: "`late` is not a standard attribute.",
+        isCorrect: false,
+      },
+      {
+        text: "onload",
+        rationale:
+          "`onload` is an event handler, not an attribute to control parsing behavior.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This attribute helps prevent blocking the initial rendering of the page.",
+  },
+  {
+    id: 39,
+    topic: "HTML",
+    question:
+      "Which tag is used to define an internal stylesheet (CSS embedded directly in the HTML document)?",
+    answerOptions: [
+      {
+        text: "<link>",
+        rationale: "`<link>` is for external stylesheets.",
+        isCorrect: false,
+      },
+      {
+        text: "<css>",
+        rationale: "`<css>` is not a standard HTML element.",
+        isCorrect: false,
+      },
+      {
+        text: "<style>",
+        rationale:
+          "The `<style>` element is used to contain CSS declarations for the document.",
+        isCorrect: true,
+      },
+      {
+        text: '<script type="css">',
+        rationale: "The `<script>` tag is for executable code, not CSS.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This element is usually placed inside the `<head>` section.",
+  },
+  {
+    id: 40,
+    topic: "HTML",
+    question: "What is the function of the HTML5 `<time>` element?",
+    answerOptions: [
+      {
+        text: "To create a countdown timer using JavaScript.",
+        rationale: "A countdown requires JavaScript logic.",
+        isCorrect: false,
+      },
+      {
+        text: "To define the section containing the latest news or updates.",
+        rationale: "This would typically use `<article>` or `<section>`.",
+        isCorrect: false,
+      },
+      {
+        text: "To provide a machine-readable date/time to the browser or search engines.",
+        rationale:
+          "The `<time>` element semantically encloses a date, time, or duration, often with the `datetime` attribute for machine readability.",
+        isCorrect: true,
+      },
+      {
+        text: "To control the speed of CSS animations.",
+        rationale:
+          "CSS animations are controlled via CSS properties like `animation-duration`.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This element is a tool for search engines to better understand temporal data.",
+  },
+  {
+    id: 41,
+    topic: "CSS",
+    question:
+      "What does CSS primarily stand for, and which property is the 'C' based on?",
+    answerOptions: [
+      {
+        text: "Creative Styling Sheets, based on creativity rules.",
+        rationale: "CSS stands for Cascading Style Sheets.",
+        isCorrect: false,
+      },
+      {
+        text: "Client Side Styling, based on browser-specific rules.",
+        rationale: "CSS stands for Cascading Style Sheets.",
+        isCorrect: false,
+      },
+      {
+        text: "Cascading Style Sheets, based on the cascade of rules.",
+        rationale:
+          "CSS is an acronym for Cascading Style Sheets, referring to the order and priority in which styles are applied.",
+        isCorrect: true,
+      },
+      {
+        text: "Computer Style Sheets, based on device compatibility.",
+        rationale: "CSS stands for Cascading Style Sheets.",
+        isCorrect: false,
+      },
+    ],
+    hint: "The 'C' refers to the order in which styles from multiple sources are processed.",
+  },
+  {
+    id: 42,
+    topic: "CSS",
+    question:
+      "Which of the following describes the core principle of CSS **Specificity**?",
+    answerOptions: [
+      {
+        text: "It determines whether a property value is passed down from a parent to a child element.",
+        rationale: "This describes **Inheritance**.",
+        isCorrect: false,
+      },
+      {
+        text: "It is a scoring system that determines which clashing style rule takes precedence over another.",
+        rationale:
+          "Specificity provides a weight to a CSS selector, ensuring that a more targeted rule overrides a general one.",
+        isCorrect: true,
+      },
+      {
+        text: "It ensures that the last defined rule always wins, regardless of the selector type.",
+        rationale:
+          "This is only true if specificity is equal; otherwise, the most specific rule wins.",
+        isCorrect: false,
+      },
+      {
+        text: "It defines the order in which style sheets are loaded by the browser.",
+        rationale:
+          "This relates to the file loading order, not the rule priority.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This concept acts as a tie-breaker when multiple rules target the same element.",
+  },
+  {
+    id: 43,
+    topic: "CSS",
+    question:
+      "Which selector type has the **highest specificity score** (excluding inline styles and `!important`)?",
+    answerOptions: [
+      {
+        text: "Element selector (e.g., `p`)",
+        rationale: "Score: 0-0-1 (Lowest).",
+        isCorrect: false,
+      },
+      {
+        text: "Class selector (e.g., `.menu-item`)",
+        rationale: "Score: 0-1-0 (Medium).",
+        isCorrect: false,
+      },
+      {
+        text: "ID selector (e.g., `#main-header`)",
+        rationale: "Score: 1-0-0 (Highest of the standard selectors).",
+        isCorrect: true,
+      },
+      {
+        text: "Pseudo-class selector (e.g., `:hover`)",
+        rationale: "Score: 0-1-0 (Same as a class).",
+        isCorrect: false,
+      },
+    ],
+    hint: "This selector is typically unique to one element on the page.",
+  },
+  {
+    id: 44,
+    topic: "CSS",
+    question:
+      "Which of the following is an example of a property value that is commonly **inherited** from a parent element to a child element?",
+    answerOptions: [
+      {
+        text: "margin",
+        rationale: "Margins are not inherited to allow independent spacing.",
+        isCorrect: false,
+      },
+      {
+        text: "width",
+        rationale:
+          "Width is not inherited; it's calculated based on the parent's available space.",
+        isCorrect: false,
+      },
+      {
+        text: "color",
+        rationale:
+          "Text-related properties like `color`, `font-family`, and `font-size` are commonly inherited.",
+        isCorrect: true,
+      },
+      {
+        text: "border",
+        rationale:
+          "Borders are not inherited; child elements must be given their own borders.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This property controls the foreground color of text.",
+  },
+  {
+    id: 45,
+    topic: "CSS",
+    question:
+      "What is the correct order of the components in the CSS Box Model, starting from the innermost layer?",
+    answerOptions: [
+      {
         text: "Content, Border, Padding, Margin",
         rationale:
-          "Padding is directly adjacent to the content, and the border surrounds the padding.",
+          "Padding is inside the border; the order is Content, Padding, Border, Margin.",
+        isCorrect: false,
+      },
+      {
+        text: "Content, Margin, Padding, Border",
+        rationale:
+          "Margin is the outermost layer, and padding is inside the border.",
         isCorrect: false,
       },
       {
         text: "Content, Padding, Border, Margin",
         rationale:
-          "The Box Model dictates that content is surrounded by padding, which is surrounded by the border, which is surrounded by the margin.",
+          "This order moves outward: content is wrapped by padding, which is enclosed by the border, which is separated by the margin.",
         isCorrect: true,
       },
       {
         text: "Margin, Border, Padding, Content",
-        rationale:
-          "Margin is the outermost layer, and content is the innermost layer.",
+        rationale: "This is the reverse order (outermost to innermost).",
         isCorrect: false,
       },
     ],
-    hint: "The properties expand outward from the actual visible content.",
+    hint: "The padding provides space directly around the content.",
   },
   {
-    id: 23,
+    id: 46,
     topic: "CSS",
-    question:
-      "Which selector has the highest specificity (excluding inline styles and `!important`)?",
+    question: "In the CSS Box Model, what does the **Padding** area represent?",
     answerOptions: [
       {
-        text: ".classSelector",
-        rationale: "Class selectors have a specificity value of 0-1-0.",
+        text: "The space outside the border, separating the element from its neighbors.",
+        rationale: "This describes the **Margin** area.",
         isCorrect: false,
       },
       {
-        text: "p",
-        rationale:
-          "Element (type) selectors have the lowest specificity value of 0-0-1.",
+        text: "The visible line that encloses the content and padding.",
+        rationale: "This describes the **Border** area.",
         isCorrect: false,
       },
       {
-        text: "#idSelector",
-        rationale:
-          "ID selectors have a specificity value of 1-0-0, which is higher than class (0-1-0) or element (0-0-1) selectors.",
+        text: "The inner space between the element's content and its border.",
+        rationale: "Padding creates space inside the box.",
         isCorrect: true,
       },
       {
-        text: '[type="text"]',
+        text: "The calculated area of the HTML element as defined by its width and height.",
         rationale:
-          "Attribute selectors have a specificity value of 0-1-0, the same as a class selector.",
+          "This describes the **Content** area (in the default box model).",
         isCorrect: false,
       },
     ],
-    hint: "Specificity rules are based on the count of ID, class, and element selectors.",
+    hint: "This adds 'breathing room' within the element's background.",
   },
   {
-    id: 24,
+    id: 47,
     topic: "CSS",
     question:
-      "Which CSS `position` value takes an element out of the normal document flow and positions it relative to its closest *positioned* ancestor?",
+      "Which value of the `box-sizing` property ensures that `padding` and `border` are included in the element's total `width` and `height`?",
     answerOptions: [
       {
-        text: "fixed",
+        text: "box-sizing: content-box;",
         rationale:
-          "Fixed positioning is relative to the viewport, not the closest positioned ancestor.",
+          "This is the default value, where padding and border are *added* to the declared width/height.",
         isCorrect: false,
       },
       {
-        text: "relative",
-        rationale:
-          "Relative positioning is relative to the element's original position and keeps it in the flow.",
+        text: "box-sizing: margin-box;",
+        rationale: "`margin-box` is not a standard value.",
         isCorrect: false,
       },
       {
-        text: "static",
-        rationale: "Static is the default and is not positioned.",
-        isCorrect: false,
-      },
-      {
-        text: "absolute",
+        text: "box-sizing: border-box;",
         rationale:
-          "Elements with `position: absolute` are positioned relative to their nearest ancestor that has a position value other than `static`.",
+          "Setting this value makes layout calculation much easier by containing padding and border within the declared width/height.",
         isCorrect: true,
       },
-    ],
-    hint: "This positioning method makes an element's placement dependent on a parent, not the viewport.",
-  },
-  {
-    id: 25,
-    topic: "CSS",
-    question:
-      "Which Flexbox property is used to align items along the **main** axis?",
-    answerOptions: [
       {
-        text: "align-items",
-        rationale: "`align-items` aligns items along the *cross* axis.",
-        isCorrect: false,
-      },
-      {
-        text: "flex-direction",
+        text: "box-sizing: padding-box;",
         rationale:
-          "`flex-direction` sets the direction of the main axis but doesn't handle alignment along it.",
+          "This is a non-standard value or a legacy one with limited use.",
         isCorrect: false,
-      },
-      {
-        text: "align-content",
-        rationale:
-          "`align-content` aligns lines of items in the container, primarily used when there is wrapping.",
-        isCorrect: false,
-      },
-      {
-        text: "justify-content",
-        rationale:
-          "`justify-content` controls how items are spaced and aligned within the container along the primary axis (horizontal by default).",
-        isCorrect: true,
       },
     ],
-    hint: "The property's name suggests it controls the 'justification' or spacing *between* and *around* the items.",
+    hint: "This is the modern standard for predictable layout sizing.",
   },
   {
-    id: 26,
+    id: 48,
     topic: "CSS",
     question:
-      "Which CSS unit represents a measurement relative to the font-size of the **root** element?",
+      "Which CSS unit represents a measurement relative to the size of the browser's **viewport width**?",
     answerOptions: [
-      {
-        text: "em",
-        rationale: "`em` is relative to the font-size of the *parent* element.",
-        isCorrect: false,
-      },
-      {
-        text: "px",
-        rationale: "`px` (pixels) is an absolute, fixed-size unit.",
-        isCorrect: false,
-      },
       {
         text: "rem",
-        rationale:
-          "`rem` (root em) is relative to the font size of the `<html>` element, providing consistent scaling across the document.",
-        isCorrect: true,
+        rationale: "Relative to the root element's font size.",
+        isCorrect: false,
+      },
+      {
+        text: "em",
+        rationale: "Relative to the parent element's font size.",
+        isCorrect: false,
       },
       {
         text: "vw",
         rationale:
-          "`vw` (viewport width) is relative to the width of the viewport, not the root element's font size.",
-        isCorrect: false,
-      },
-    ],
-    hint: "This unit helps with accessibility and scaling based on the base document size.",
-  },
-  {
-    id: 27,
-    topic: "CSS",
-    question:
-      'What is the correct way to link an external CSS file named "styles.css" to an HTML document?',
-    answerOptions: [
-      {
-        text: '<style src="styles.css">',
-        rationale: "The `<style>` tag is used for internal CSS.",
-        isCorrect: false,
-      },
-      {
-        text: '<link rel="stylesheet" href="styles.css">',
-        rationale:
-          "The `<link>` tag is used in the `<head>` of an HTML document to establish a relationship with an external stylesheet.",
+          "The `vw` (viewport width) unit calculates size as a percentage of the browser window's width.",
         isCorrect: true,
       },
       {
-        text: '<css rel="stylesheet" source="styles.css">',
+        text: "%",
         rationale:
-          "`<css>` is not a standard HTML tag for linking stylesheets.",
-        isCorrect: false,
-      },
-      {
-        text: '<import url("styles.css")>',
-        rationale:
-          "This syntax is used within CSS files (`@import`), not directly in the HTML file.",
+          "The percentage unit is relative to the parent element's size, not necessarily the viewport.",
         isCorrect: false,
       },
     ],
-    hint: "This tag is placed in the head and specifies the relationship type and the source file.",
+    hint: "This unit is key for true, fluid responsive typography and sizing.",
   },
   {
-    id: 28,
+    id: 49,
     topic: "CSS",
     question:
-      "Which pseudo-class is used to style an element only when the mouse cursor is over it?",
+      "If you set the `font-size` of the `<html>` element to 16px, what would `2rem` equal on a child element?",
     answerOptions: [
       {
-        text: ":active",
-        rationale:
-          "`:active` styles an element while it is being activated (clicked/pressed).",
+        text: "16px",
+        rationale: "2rem is twice the root font size.",
         isCorrect: false,
       },
       {
-        text: ":focus",
-        rationale: "`:focus` styles an element when it has focus.",
+        text: "24px",
+        rationale: "2rem is 32px (16 * 2).",
         isCorrect: false,
       },
       {
-        text: ":over",
-        rationale: "`:over` is not a standard CSS pseudo-class.",
-        isCorrect: false,
-      },
-      {
-        text: ":hover",
+        text: "32px",
         rationale:
-          "The `:hover` pseudo-class applies styles when a user's pointing device is over an element.",
-        isCorrect: true,
-      },
-    ],
-    hint: "This is the most common way to create interactive visual feedback for elements.",
-  },
-  {
-    id: 29,
-    topic: "CSS",
-    question:
-      "What is the correct syntax for a media query that applies styles when the viewport width is **at least** 600 pixels?",
-    answerOptions: [
-      {
-        text: "@media screen and (max-width: 600px)",
-        rationale:
-          "`max-width` applies styles when the viewport is 600 pixels or *less*.",
-        isCorrect: false,
-      },
-      {
-        text: "@media (width >= 600px)",
-        rationale:
-          "This syntax is not the standard way to write range features in a media query.",
-        isCorrect: false,
-      },
-      {
-        text: "@media (min-width: 600px)",
-        rationale:
-          "`min-width` is used to apply styles for viewports *equal to or wider* than the specified value.",
+          "The `rem` unit is calculated relative to the root element's font size (2 * 16px = 32px).",
         isCorrect: true,
       },
       {
-        text: "@media only screen and (screen-width: 600px)",
-        rationale: "This only targets a width *exactly* at 600px.",
+        text: "300%",
+        rationale: "300% is equivalent to 3 times the size, not 2 times.",
         isCorrect: false,
       },
     ],
-    hint: 'This is the key component for a "mobile-first" approach to responsive design.',
+    hint: "The 'r' in `rem` stands for 'root'.",
   },
   {
-    id: 30,
+    id: 50,
     topic: "CSS",
     question:
-      "Which CSS property is used to control the tiling or repetition of a background image?",
+      "Which CSS property is used to define an element as a **Grid Container**?",
     answerOptions: [
       {
-        text: "background-tile",
-        rationale: "`background-tile` is not a standard CSS property.",
+        text: "grid-template: auto;",
+        rationale:
+          "This defines the structure, but doesn't initiate Grid layout.",
         isCorrect: false,
       },
       {
-        text: "background-position",
+        text: "display: grid;",
         rationale:
-          "`background-position` controls the initial position of the background image, not its repetition.",
-        isCorrect: false,
-      },
-      {
-        text: "background-repeat",
-        rationale:
-          "`background-repeat` determines whether a background image is repeated, and if so, how.",
+          "Setting `display: grid` on a parent element makes it a grid container, enabling two-dimensional layout for its children.",
         isCorrect: true,
       },
       {
-        text: "background-size",
+        text: "position: grid;",
         rationale:
-          "`background-size` controls the dimensions of the background image.",
+          "`position` is used for element placement, not for enabling Grid layout.",
+        isCorrect: false,
+      },
+      {
+        text: "flex-direction: grid;",
+        rationale: "`flex-direction` is a Flexbox property.",
         isCorrect: false,
       },
     ],
-    hint: "You can specify options like `repeat-x`, `repeat-y`, or `no-repeat`.",
+    hint: "Like Flexbox, this property controls the layout behavior of the container element.",
   },
   {
-    id: 31,
+    id: 51,
     topic: "CSS",
     question:
-      "What is the difference between `display: none;` and `visibility: hidden;`?",
-    answerOptions: [
-      {
-        text: "There is no functional difference; they are interchangeable.",
-        rationale:
-          "These two properties have fundamentally different effects on the document layout.",
-        isCorrect: false,
-      },
-      {
-        text: "`display: none;` hides the content, while `visibility: hidden;` hides the element's children but not the element itself.",
-        isCorrect: false,
-        rationale:
-          "Both properties hide the element itself; the difference is in how they affect the layout flow.",
-      },
-      {
-        text: "`display: none;` removes the element from the flow, while `visibility: hidden;` hides it but reserves its space.",
-        rationale:
-          "`display: none` causes a reflow and the element takes up no space, whereas `visibility: hidden` keeps the element's box model space intact.",
-        isCorrect: true,
-      },
-      {
-        text: "`display: none;` is for text-only elements, and `visibility: hidden;` is for images.",
-        rationale: "Both properties apply to all HTML elements.",
-        isCorrect: false,
-      },
-    ],
-    hint: "One property affects layout flow, and the other only affects the element's rendering.",
-  },
-  {
-    id: 32,
-    topic: "CSS",
-    question:
-      "In CSS Grid Layout, which property is used to specify the number and size of the columns?",
+      "CSS Grid is primarily used for **two-dimensional** layout. Which property defines the tracks (size and number) for the **columns**?",
     answerOptions: [
       {
         text: "grid-template-rows",
-        rationale:
-          "This property defines the size and number of the rows in the grid.",
-        isCorrect: false,
-      },
-      {
-        text: "grid-gap",
-        rationale:
-          "This property controls the spacing between the rows and columns.",
+        rationale: "This defines the rows (horizontal tracks).",
         isCorrect: false,
       },
       {
         text: "grid-auto-flow",
         rationale:
-          "This property controls how auto-placed items flow into the grid.",
+          "This controls how auto-placed items flow, not the column structure.",
+        isCorrect: false,
+      },
+      {
+        text: "grid-gap",
+        rationale: "This property defines the spacing between cells.",
         isCorrect: false,
       },
       {
         text: "grid-template-columns",
         rationale:
-          "This property allows you to define the structure of the columns in the grid container.",
+          "This property allows you to define the number and width of the vertical tracks in the grid.",
         isCorrect: true,
       },
     ],
-    hint: "The name implies defining the pattern or arrangement for the vertical tracks.",
+    hint: "The name is specific to defining the column pattern.",
   },
   {
-    id: 33,
+    id: 52,
     topic: "CSS",
     question:
-      "How do you define a custom CSS property (CSS Variable) within a rule set?",
+      "Which Flexbox property aligns flex items along the **main axis** of the container?",
     answerOptions: [
       {
-        text: "$main-color: blue;",
-        rationale:
-          "The `$` prefix is often used in pre-processors (like Sass), but not for native CSS variables.",
+        text: "align-items",
+        rationale: "Aligns along the **cross-axis**.",
         isCorrect: false,
       },
       {
-        text: "var main-color: blue;",
-        rationale: "`var` is used to *call* a variable, not to define it.",
+        text: "flex-direction",
+        rationale:
+          "Defines the main axis direction, but not the alignment along it.",
         isCorrect: false,
       },
       {
-        text: "--main-color: blue;",
+        text: "justify-content",
         rationale:
-          "CSS custom properties are defined with a name starting with two hyphens (`--`).",
+          "This property controls the distribution and alignment of items along the main axis.",
         isCorrect: true,
       },
       {
-        text: "let main-color = blue;",
-        rationale: "This is JavaScript variable syntax, not CSS.",
+        text: "align-content",
+        rationale: "Aligns multiple lines of items along the cross-axis.",
         isCorrect: false,
       },
     ],
-    hint: "The syntax is similar to standard CSS properties but requires a special prefix.",
+    hint: "The property name relates to the 'justification' or spacing of content.",
   },
   {
-    id: 34,
+    id: 53,
     topic: "CSS",
     question:
-      "The `+` combinator in a selector (e.g., `h1 + p`) selects which element?",
+      "Which of the following describes the difference between `position: relative;` and `position: absolute;`?",
     answerOptions: [
       {
-        text: "All `p` elements inside the `h1` element.",
+        text: "Relative elements are positioned relative to the viewport; absolute elements are positioned relative to the document.",
         rationale:
-          "The `+` is a sibling combinator and does not select descendants.",
+          "Neither is entirely correct; relative is relative to itself, absolute is relative to its nearest *positioned* ancestor.",
         isCorrect: false,
       },
       {
-        text: "All `p` elements that are siblings of the `h1` element.",
+        text: "Relative elements stay in the document flow, while absolute elements are removed from the flow.",
         rationale:
-          "The `~` (general sibling) combinator selects all subsequent siblings.",
-        isCorrect: false,
-      },
-      {
-        text: "The first `p` element immediately preceded by an `h1` element.",
-        rationale:
-          "The adjacent sibling combinator (`+`) selects an element that is immediately preceded by the first element.",
+          "Absolute positioning removes the element from the flow, meaning it takes up no space.",
         isCorrect: true,
       },
       {
-        text: "Any `p` element that is a child of an `h1` element.",
-        rationale:
-          "The `h1` element cannot have a `p` element as a child; `>` is the child combinator.",
+        text: "Relative positioning requires `z-index`, but absolute positioning does not.",
+        rationale: "Both types of positioning support `z-index`.",
+        isCorrect: false,
+      },
+      {
+        text: "Relative positioning is used for block elements; absolute is used for inline elements.",
+        rationale: "Positioning applies to all element types.",
         isCorrect: false,
       },
     ],
-    hint: "The elements must be next to each other in the source order.",
+    hint: "One maintains its space in the layout, the other is treated as if it were not there.",
   },
   {
-    id: 35,
+    id: 54,
     topic: "CSS",
     question:
-      "Which pseudo-element is used to insert content before the actual content of an element?",
+      "For an element to be positioned relative to the browser window (viewport) and stay fixed when the user scrolls, what position value is required?",
     answerOptions: [
       {
-        text: "::after",
-        rationale:
-          "The `::after` pseudo-element inserts content *after* the element's content.",
+        text: "position: relative;",
+        rationale: "Relative is based on the element's original position.",
         isCorrect: false,
       },
       {
-        text: ":first-child",
+        text: "position: absolute;",
         rationale:
-          "`:first-child` is a pseudo-class used to select the first element among a group of siblings.",
+          "Absolute is based on the nearest *positioned* ancestor, not necessarily the viewport.",
         isCorrect: false,
       },
+      {
+        text: "position: static;",
+        rationale: "Static is the default and ignores positioning properties.",
+        isCorrect: false,
+      },
+      {
+        text: "position: fixed;",
+        rationale:
+          "Fixed positioning places the element relative to the viewport, keeping it static during scrolling.",
+        isCorrect: true,
+      },
+    ],
+    hint: "This position is often used for sticky headers or floating buttons.",
+  },
+  {
+    id: 55,
+    topic: "CSS",
+    question:
+      "What is the primary function of a **Media Query** in responsive design?",
+    answerOptions: [
+      {
+        text: "To load external JavaScript files based on user interaction.",
+        rationale: "This is the job of the `<script>` tag and JavaScript.",
+        isCorrect: false,
+      },
+      {
+        text: "To determine which CSS properties are inherited by child elements.",
+        rationale: "Inheritance rules are static in CSS.",
+        isCorrect: false,
+      },
+      {
+        text: "To apply styles selectively based on device characteristics like screen width or orientation.",
+        rationale:
+          "Media Queries enable responsive design by allowing developers to write conditional CSS blocks.",
+        isCorrect: true,
+      },
+      {
+        text: "To define the stacking order of elements using `z-index`.",
+        rationale:
+          "This is handled by the `z-index` property on positioned elements.",
+        isCorrect: false,
+      },
+    ],
+    hint: "Media queries create breakpoints for different screen sizes.",
+  },
+  {
+    id: 56,
+    topic: "CSS",
+    question:
+      "What is the correct syntax for a media query that targets devices with a maximum screen width of 768 pixels?",
+    answerOptions: [
+      {
+        text: "@query (screen-width: 768px)",
+        rationale: "Incorrect syntax and property name.",
+        isCorrect: false,
+      },
+      {
+        text: "@media screen and (min-width: 768px)",
+        rationale: "`min-width` targets devices *wider* than 768px.",
+        isCorrect: false,
+      },
+      {
+        text: "@media (max-width: 768px)",
+        rationale:
+          "`max-width` correctly applies styles only when the screen width is 768px or smaller.",
+        isCorrect: true,
+      },
+      {
+        text: "@media only screen and (width: 768px)",
+        rationale: "This only targets a width *exactly* at 768px.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This is typically used in a 'desktop-first' approach to responsiveness.",
+  },
+  {
+    id: 57,
+    topic: "CSS",
+    question: "Which of the following is a **Pseudo-Class**?",
+    answerOptions: [
       {
         text: "::before",
+        rationale: "This is a **Pseudo-Element** used to insert content.",
+        isCorrect: false,
+      },
+      {
+        text: ":active",
         rationale:
-          "The `::before` pseudo-element allows you to insert and style content that appears before the element's content.",
+          "Pseudo-classes target an element's *state* (e.g., focused, clicked, or hovered).",
         isCorrect: true,
       },
       {
-        text: ":root",
+        text: "::first-line",
         rationale:
-          "`:root` is a pseudo-class that represents the document's root element (`<html>`).",
+          "This is a **Pseudo-Element** used to target a specific part of an element.",
+        isCorrect: false,
+      },
+      {
+        text: "#header",
+        rationale: "This is an **ID selector**.",
         isCorrect: false,
       },
     ],
-    hint: "This is often used with the `content` property to add decorative elements.",
+    hint: "Pseudo-classes are indicated by a single colon (`:`) and relate to the element's status.",
   },
   {
-    id: 36,
+    id: 58,
     topic: "CSS",
-    question:
-      "The property `box-sizing: border-box;` changes the CSS Box Model calculation how?",
+    question: "What is the effect of the selector `div + p`?",
     answerOptions: [
       {
-        text: "It prevents the element from inheriting its parent's padding and border.",
-        rationale: "It affects the box calculation, not inheritance.",
+        text: "It selects all `p` elements inside any `div` element.",
+        rationale: "This is the descendant selector (`div p`).",
         isCorrect: false,
       },
       {
-        text: "The `width` and `height` properties include the content and padding, but exclude the border.",
-        rationale:
-          "Border is also included in the calculation of width/height.",
-        isCorrect: false,
-      },
-      {
-        text: "The `width` and `height` properties include the content, padding, and border.",
-        rationale:
-          "This is the definition of `border-box`. The total width/height remains fixed at the declared value.",
+        text: "It selects the first `p` element that is immediately preceded by a `div` element.",
+        rationale: "The `+` is the adjacent sibling combinator.",
         isCorrect: true,
       },
       {
-        text: "It converts a block-level element into an inline-level element.",
-        rationale: "This is handled by the `display` property.",
+        text: "It selects all `p` elements that are siblings of a `div` element.",
+        rationale: "This is the general sibling selector (`div ~ p`).",
+        isCorrect: false,
+      },
+      {
+        text: "It selects any `p` element that is a direct child of a `div` element.",
+        rationale: "This is the child selector (`div > p`).",
         isCorrect: false,
       },
     ],
-    hint: "This property makes layout calculations much more predictable.",
+    hint: "This selector requires the two elements to be next to each other in the document source order.",
   },
   {
-    id: 37,
+    id: 59,
     topic: "CSS",
     question:
-      "For an element to be affected by the `z-index` property, what must also be set?",
+      "Which CSS property is used to control the stacking order of positioned elements that overlap?",
     answerOptions: [
       {
-        text: "It must have a `background-color` set.",
-        rationale: "`z-index` is independent of color.",
-        isCorrect: false,
-      },
-      {
-        text: "Its `display` property must be `block` or `inline-block`.",
-        rationale: "`z-index` primarily relies on positioning.",
-        isCorrect: false,
-      },
-      {
-        text: "Its `position` property must be set to something other than `static`.",
+        text: "order",
         rationale:
-          "Only elements with `position: absolute`, `relative`, `fixed`, or `sticky` create a stacking context and respond to `z-index`.",
+          "`order` is a Flexbox property for arranging items along the axis.",
+        isCorrect: false,
+      },
+      {
+        text: "position-layer",
+        rationale: "Not a standard CSS property.",
+        isCorrect: false,
+      },
+      {
+        text: "z-index",
+        rationale:
+          "The `z-index` property accepts an integer value to determine which element appears on top in a stack (higher numbers are closer to the user).",
         isCorrect: true,
       },
       {
-        text: "It must be a direct child of the `<body>` element.",
-        rationale: "Positioning works on any nested element.",
+        text: "overflow",
+        rationale:
+          "`overflow` dictates how content should be handled when it exceeds the element's dimensions.",
         isCorrect: false,
       },
     ],
-    hint: "This property determines the element's stacking layer in a 3D context.",
+    hint: "The 'z' refers to the z-axis (depth).",
   },
   {
-    id: 38,
+    id: 60,
     topic: "CSS",
     question:
-      "Which pseudo-class is often used to define global CSS variables (custom properties)?",
+      "In the syntax `selector { property: value; }`, what is the entire block, including the selector, curly braces, and declarations, called?",
     answerOptions: [
       {
-        text: ":global",
-        rationale:
-          "`:global` is often found in CSS modules/pre-processors, but not standard CSS.",
+        text: "A CSS declaration",
+        rationale: "The declaration is just the `property: value;` pair.",
         isCorrect: false,
       },
       {
-        text: ":document",
-        rationale: "`:document` is not a standard pseudo-class.",
+        text: "A CSS property block",
+        rationale: "Not a standard CSS term.",
         isCorrect: false,
       },
       {
-        text: ":root",
+        text: "A CSS rule set",
         rationale:
-          "The `:root` pseudo-class represents the `<html>` element and is the convention for defining variables accessible globally.",
+          "The entire structure from selector to the closing brace is referred to as a rule set (or simply a rule).",
         isCorrect: true,
       },
       {
-        text: ":defined",
-        rationale:
-          "`:defined` selects any element that has been successfully defined.",
+        text: "A CSS statement",
+        rationale: "A statement is a more general programming term.",
         isCorrect: false,
       },
     ],
-    hint: "This is the top-most element in the document tree.",
+    hint: "This term refers to the complete instruction for the browser.",
   },
   {
-    id: 39,
+    id: 61,
     topic: "CSS",
     question:
-      "What is the fundamental difference between CSS Flexbox and CSS Grid Layout?",
+      "The `opacity` property can make an element transparent. What is the valid range of values for `opacity`?",
     answerOptions: [
       {
-        text: "Flexbox is for aligning content, while Grid is only for sizing.",
-        rationale: "Grid also handles alignment.",
+        text: "0 to 100 (percentage)",
+        rationale: "It uses decimal values, not percentages, for 0 to 1.",
         isCorrect: false,
       },
       {
-        text: "Flexbox only supports positioning for IE11, while Grid is universal.",
-        rationale: "Both are widely supported, and Flexbox is older.",
+        text: "-1 to 1 (negative values hide the element)",
+        rationale: "Negative values are invalid.",
         isCorrect: false,
       },
       {
-        text: "Flexbox is designed for one-dimensional layouts (row or column), while Grid is for two-dimensional layouts (rows and columns simultaneously).",
-        rationale: "This is the core conceptual difference.",
+        text: "0.0 to 1.0 (where 0.0 is invisible and 1.0 is fully opaque)",
+        rationale:
+          "Opacity is defined as a floating-point number between 0 and 1.",
         isCorrect: true,
       },
       {
-        text: "Grid is for small components, while Flexbox is for large page layouts.",
-        rationale:
-          "The opposite is often true, but neither is strictly limited.",
+        text: "Any positive integer value.",
+        rationale: "Only values between 0 and 1 (inclusive) are valid.",
         isCorrect: false,
       },
     ],
-    hint: "Think about the number of axes (dimensions) they manage.",
+    hint: "The value represents a fraction of full visibility.",
   },
   {
-    id: 40,
+    id: 62,
     topic: "CSS",
     question:
-      "Which pseudo-element can be used to style the portion of a text that has been highlighted (selected) by the user?",
+      "Which shorthand property can be used to set the `font-style`, `font-weight`, `font-size`, and `font-family` in a single declaration?",
     answerOptions: [
       {
-        text: "::highlight",
-        rationale:
-          "`::highlight` is part of a different standard; `::selection` is for text selection.",
+        text: "text-style",
+        rationale: "This property is not a shorthand for all font properties.",
         isCorrect: false,
       },
       {
-        text: "::active-text",
-        rationale: "`::active-text` is not a standard pseudo-element.",
+        text: "typeface",
+        rationale: "Not a standard CSS property.",
         isCorrect: false,
       },
       {
-        text: "::focus",
+        text: "font",
         rationale:
-          "`::focus` is a pseudo-class for elements that have focus, not for selected text.",
-        isCorrect: false,
-      },
-      {
-        text: "::selection",
-        rationale:
-          "The `::selection` pseudo-element allows you to apply styles to the content highlighted by the user.",
+          "The `font` property is a comprehensive shorthand for the most common font-related properties.",
         isCorrect: true,
       },
+      {
+        text: "text-format",
+        rationale: "Not a standard CSS property.",
+        isCorrect: false,
+      },
     ],
-    hint: "It describes the user's action of marking text with the mouse.",
+    hint: "This is the most direct name for the group of text appearance properties.",
   },
-
-  // ------------------------------------
-  // --- JAVASCRIPT QUESTIONS (IDs 41 - 60) ---
-  // ------------------------------------
   {
-    id: 41,
+    id: 63,
+    topic: "CSS",
+    question:
+      "What is the primary difference between a **Pseudo-Class** (e.g., `:hover`) and a **Pseudo-Element** (e.g., `::after`)?",
+    answerOptions: [
+      {
+        text: "Pseudo-classes affect the element's *state*; Pseudo-elements target a specific *part* of the element or insert content.",
+        rationale:
+          "This is the correct distinction: state vs. content/fragment.",
+        isCorrect: true,
+      },
+      {
+        text: "Pseudo-classes use two colons (`::`); Pseudo-elements use one colon (`:`).",
+        rationale:
+          "This is reversed; pseudo-elements use two colons (CSS3 standard).",
+        isCorrect: false,
+      },
+      {
+        text: "Pseudo-classes are for layout; Pseudo-elements are for typography.",
+        rationale: "Both can be used for both purposes.",
+        isCorrect: false,
+      },
+      {
+        text: "Pseudo-classes are block-level; Pseudo-elements are inline-level.",
+        rationale: "Both can have their display type changed.",
+        isCorrect: false,
+      },
+    ],
+    hint: "One modifies the element itself; the other creates something new or targets a virtual fragment.",
+  },
+  {
+    id: 64,
+    topic: "CSS",
+    question:
+      "What is the purpose of the `inherit` keyword as a value for any CSS property?",
+    answerOptions: [
+      {
+        text: "It sets the property to its initial, default browser value.",
+        rationale: "This is the `initial` keyword.",
+        isCorrect: false,
+      },
+      {
+        text: "It forces the property to receive the computed value of the parent element.",
+        rationale:
+          "The `inherit` keyword explicitly tells the browser to use the parent's computed value for that property.",
+        isCorrect: true,
+      },
+      {
+        text: "It prevents the property from being overridden by any less specific rule.",
+        rationale: "This describes the `!important` rule.",
+        isCorrect: false,
+      },
+      {
+        text: "It applies the property value only to descendant elements, not the element itself.",
+        rationale: "The value applies to the element itself.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This keyword can force a non-inherited property to follow its parent.",
+  },
+  {
+    id: 65,
+    topic: "CSS",
+    question:
+      "Which Flexbox property allows a flex item to grow and occupy available space within the flex container?",
+    answerOptions: [
+      {
+        text: "flex-basis",
+        rationale: "Defines the initial size of the item.",
+        isCorrect: false,
+      },
+      {
+        text: "flex-shrink",
+        rationale:
+          "Defines the item's ability to shrink when space is limited.",
+        isCorrect: false,
+      },
+      {
+        text: "flex-grow",
+        rationale:
+          "A non-zero value allows the item to take up remaining space proportionally.",
+        isCorrect: true,
+      },
+      {
+        text: "flex-wrap",
+        rationale: "Controls whether items wrap to the next line.",
+        isCorrect: false,
+      },
+    ],
+    hint: "The name is literally the action it performs.",
+  },
+  {
+    id: 66,
+    topic: "CSS",
+    question:
+      "Which Flexbox property is used to specify whether flex items should wrap onto multiple lines?",
+    answerOptions: [
+      {
+        text: "flex-flow: wrap;",
+        rationale:
+          "`flex-flow` is a shorthand for both direction and wrap, so this is correct but not the specific property.",
+        isCorrect: false,
+      },
+      {
+        text: "flex-wrap: wrap;",
+        rationale:
+          "The `flex-wrap` property explicitly controls wrapping behavior.",
+        isCorrect: true,
+      },
+      {
+        text: "overflow: wrap;",
+        rationale:
+          "`overflow` is for content spilling out of the box, not flex item arrangement.",
+        isCorrect: false,
+      },
+      {
+        text: "align-content: wrap;",
+        rationale:
+          "`align-content` is for spacing multiple lines, not enabling the wrap itself.",
+        isCorrect: false,
+      },
+    ],
+    hint: "The property name describes the items' behavior when they exceed the container size.",
+  },
+  {
+    id: 67,
+    topic: "CSS",
+    question:
+      "What is the result of using the `::before` pseudo-element with the CSS `content` property?",
+    answerOptions: [
+      {
+        text: "It replaces the existing content of the HTML element.",
+        rationale: "It inserts content *before* the existing content.",
+        isCorrect: false,
+      },
+      {
+        text: "It creates a virtual child element and inserts content *before* the element's actual content.",
+        rationale:
+          "Pseudo-elements insert content that is not in the source HTML, placing it before the element's text/children.",
+        isCorrect: true,
+      },
+      {
+        text: "It defines a new class name that can be referenced later.",
+        rationale: "This is done using the `.class-name` syntax.",
+        isCorrect: false,
+      },
+      {
+        text: "It allows a CSS style to be applied to the parent element.",
+        rationale: "It targets the element itself or its virtual parts.",
+        isCorrect: false,
+      },
+    ],
+    hint: "The inserted content is not visible in the HTML source code.",
+  },
+  {
+    id: 68,
+    topic: "CSS",
+    question:
+      "Which CSS property is used to apply a visual effect, such as blurring or changing contrast, to an element?",
+    answerOptions: [
+      {
+        text: "transform",
+        rationale: "Used for 2D/3D manipulation (translate, rotate, scale).",
+        isCorrect: false,
+      },
+      {
+        text: "transition",
+        rationale: "Used to smoothly change properties over time.",
+        isCorrect: false,
+      },
+      {
+        text: "filter",
+        rationale:
+          "The `filter` property provides various graphic effects (e.g., `blur()`, `grayscale()`, `saturate()`).",
+        isCorrect: true,
+      },
+      {
+        text: "shadow",
+        rationale: "Used specifically for box or text shadows.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This property often uses function-like values to process the element's rendering.",
+  },
+  {
+    id: 69,
+    topic: "CSS",
+    question:
+      "In a rule set, what must immediately follow the CSS property name?",
+    answerOptions: [
+      {
+        text: "A semicolon (;)",
+        rationale: "The semicolon ends the entire declaration.",
+        isCorrect: false,
+      },
+      {
+        text: "An equals sign (=)",
+        rationale: "The equals sign is used for HTML attributes.",
+        isCorrect: false,
+      },
+      {
+        text: "A colon (:)",
+        rationale: "The colon separates the property name from its value.",
+        isCorrect: true,
+      },
+      {
+        text: "An assignment arrow (=>)",
+        rationale: "This is JavaScript arrow function syntax.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This character is used to indicate the beginning of the value assignment.",
+  },
+  {
+    id: 70,
+    topic: "CSS",
+    question: "What is the purpose of the `calc()` function in CSS?",
+    answerOptions: [
+      {
+        text: "To define the duration of an animation transition.",
+        rationale: "This is handled by `transition-duration`.",
+        isCorrect: false,
+      },
+      {
+        text: "To perform simple mathematical calculations to determine a CSS property value.",
+        rationale:
+          "The `calc()` function allows mixing different units (e.g., `width: calc(100% - 20px);`).",
+        isCorrect: true,
+      },
+      {
+        text: "To automatically convert `px` units to `rem` units for responsive design.",
+        rationale: "Conversion is manual or handled by pre-processors.",
+        isCorrect: false,
+      },
+      {
+        text: "To define a custom CSS variable (custom property).",
+        rationale: "Variables are defined with the `--` prefix.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This function is extremely powerful for mixing fixed and fluid sizing.",
+  },
+  {
+    id: 71,
+    topic: "CSS",
+    question:
+      "The Flexbox property `flex-direction: column;` defines the main axis as running in which direction?",
+    answerOptions: [
+      {
+        text: "Horizontally (left to right).",
+        rationale: "This is the default for `flex-direction: row;`.",
+        isCorrect: false,
+      },
+      {
+        text: "Diagonally (top-left to bottom-right).",
+        rationale: "Flexbox only supports linear axes (row or column).",
+        isCorrect: false,
+      },
+      {
+        text: "Vertically (top to bottom).",
+        rationale:
+          "Setting the direction to `column` makes the main axis run vertically, stacking items.",
+        isCorrect: true,
+      },
+      {
+        text: "Perpendicular to the text flow.",
+        rationale: "This is the definition of the cross axis.",
+        isCorrect: false,
+      },
+    ],
+    hint: "Think about how a list of elements would appear in a single column.",
+  },
+  {
+    id: 72,
+    topic: "CSS",
+    question:
+      "If you set the `overflow` property to `hidden` on a container, what is the effect?",
+    answerOptions: [
+      {
+        text: "The content is scrolled horizontally.",
+        rationale:
+          "This requires `overflow: scroll;` or `overflow-x: scroll;`.",
+        isCorrect: false,
+      },
+      {
+        text: "A scrollbar is always visible, even if the content fits.",
+        rationale: "This requires `overflow: scroll;`.",
+        isCorrect: false,
+      },
+      {
+        text: "The content that exceeds the container's boundaries is clipped and invisible.",
+        rationale:
+          "The `hidden` value truncates content that overflows the element's box.",
+        isCorrect: true,
+      },
+      {
+        text: "The content expands the container to fit.",
+        rationale:
+          "This is the default flow behavior if height/width are not constrained.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This value ensures that no scrollbars appear and content outside the bounds disappears.",
+  },
+  {
+    id: 73,
+    topic: "CSS",
+    question:
+      "Which of the following selectors targets all `p` elements that are the *first child* of their parent element?",
+    answerOptions: [
+      {
+        text: "p:first-of-type",
+        rationale:
+          "Selects the first `p` among its siblings, regardless of whether it's the absolute first child.",
+        isCorrect: false,
+      },
+      {
+        text: "p:nth-child(1)",
+        rationale:
+          "This selects elements that are the first child *AND* are a `<p>` tag (which works, but is less specific than the optimal answer).",
+        isCorrect: false,
+      },
+      {
+        text: "p:first-child",
+        rationale:
+          "This selects a `<p>` element only if it is the absolute first child of its parent, which is the exact definition of the pseudo-class.",
+        isCorrect: true,
+      },
+      {
+        text: "p::before",
+        rationale: "This is a pseudo-element for inserting content.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This pseudo-class checks the element's position relative to all other siblings.",
+  },
+  {
+    id: 74,
+    topic: "CSS",
+    question: "What is the primary function of the `transition` property?",
+    answerOptions: [
+      {
+        text: "To apply 3D rotations and skewing to an element.",
+        rationale: "This is the function of the `transform` property.",
+        isCorrect: false,
+      },
+      {
+        text: "To trigger the immediate execution of a style change when a user event occurs.",
+        rationale:
+          "Immediate changes are the default; `transition` smooths them out.",
+        isCorrect: false,
+      },
+      {
+        text: "To enable a smooth, timed change between two states of a property (e.g., color, width).",
+        rationale:
+          "The `transition` property defines how style changes should occur gradually over a specified duration.",
+        isCorrect: true,
+      },
+      {
+        text: "To define a complex animation sequence with keyframes.",
+        rationale:
+          "This is the function of the `@keyframes` rule and the `animation` property.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This property controls the speed and timing of a style change.",
+  },
+  {
+    id: 75,
+    topic: "CSS",
+    question:
+      "In the Grid Layout property `grid-template-areas`, what does a period (`.`) represent?",
+    answerOptions: [
+      {
+        text: "The end of a row definition.",
+        rationale: "Row definitions are ended implicitly by the string quotes.",
+        isCorrect: false,
+      },
+      {
+        text: "An empty cell in the grid that does not belong to any named area.",
+        rationale:
+          "The period is used as a placeholder for an unused grid cell.",
+        isCorrect: true,
+      },
+      {
+        text: "A nested grid container within a cell.",
+        rationale:
+          "Nested grids are created by setting `display: grid` on a child element.",
+        isCorrect: false,
+      },
+      {
+        text: "The start of a media query block.",
+        rationale: "Media queries start with `@media`.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This character is a simple placeholder.",
+  },
+  {
+    id: 76,
     topic: "JavaScript",
     question:
-      "Which keyword is used to declare a block-scoped variable that can be reassigned?",
+      "What is the primary role of JavaScript in a web application, as defined by the course?",
     answerOptions: [
-      { text: "var", rationale: "`var` is function-scoped.", isCorrect: false },
       {
-        text: "const",
+        text: "To tell web browsers what to show on a web page (structure).",
+        rationale: "This is the role of HTML.",
+        isCorrect: false,
+      },
+      {
+        text: "To style and show elements (visual presentation).",
+        rationale: "This is the role of CSS.",
+        isCorrect: false,
+      },
+      {
+        text: "To add interactivity and dynamic behavior to an otherwise static website.",
         rationale:
-          "`const` is block-scoped but cannot be reassigned (it's constant).",
+          "JavaScript enables features like videos, animated graphics, and network requests, creating 'desktop-like experiences'.",
+        isCorrect: true,
+      },
+      {
+        text: "To manage server-side databases and API routes.",
+        rationale:
+          "This is typically a backend role, although JavaScript can handle it with Node.js.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This language is often called the 'behavior' layer of the web.",
+  },
+  {
+    id: 77,
+    topic: "JavaScript",
+    question:
+      "Which of the following JavaScript keywords is used to declare a variable that is block-scoped and cannot be reassigned after its initial value is set?",
+    answerOptions: [
+      {
+        text: "var",
+        rationale: "`var` is function-scoped and can be reassigned.",
         isCorrect: false,
       },
       {
         text: "let",
+        rationale: "`let` is block-scoped but *can* be reassigned.",
+        isCorrect: false,
+      },
+      {
+        text: "const",
         rationale:
-          "`let` declares a block-scoped local variable, which can be updated but not redeclared in the same scope.",
+          "`const` (constant) is block-scoped and prevents reassignment of the variable reference.",
         isCorrect: true,
       },
       {
@@ -1315,1233 +2378,2100 @@ export const ALL_QUIZ_QUESTIONS: Question[] = [
         isCorrect: false,
       },
     ],
-    hint: "This variable type is flexible but respects curly brace boundaries.",
+    hint: "The name implies the value should not change.",
   },
   {
-    id: 42,
+    id: 78,
     topic: "JavaScript",
     question:
-      "What is the data type of `[1, 2, 3]` in JavaScript (according to `typeof`)?",
+      "Which JavaScript variable keyword is generally avoided in modern development due to its function scoping and hoisting behavior?",
     answerOptions: [
       {
-        text: "array",
-        rationale:
-          'The `typeof` operator returns `"object"` for arrays in JavaScript.',
+        text: "let",
+        rationale: "`let` is widely used for block-scoped mutable variables.",
         isCorrect: false,
       },
       {
-        text: "number",
+        text: "const",
         rationale:
-          "The elements inside are numbers, but the structure itself is not a number data type.",
+          "`const` is widely used for block-scoped immutable variables.",
         isCorrect: false,
       },
       {
-        text: "list",
-        rationale: "`list` is not a standard JavaScript data type.",
-        isCorrect: false,
-      },
-      {
-        text: "object",
+        text: "var",
         rationale:
-          'Although arrays have their own methods, `typeof` operator returns "object" for arrays in JavaScript.',
-        isCorrect: true,
-      },
-    ],
-    hint: "The `typeof` operator sometimes yields results that are technically correct but semantically confusing for arrays.",
-  },
-  {
-    id: 43,
-    topic: "JavaScript",
-    question:
-      "What is the primary feature of an **Arrow Function** (`() => {}`) compared to a traditional function?",
-    answerOptions: [
-      {
-        text: "It can only be used to return a single line of code.",
-        rationale:
-          "Arrow functions can have multi-line bodies enclosed in curly braces.",
-        isCorrect: false,
-      },
-      {
-        text: "It is hoisted to the top of its scope like a `var` declaration.",
-        rationale:
-          "Arrow functions are not hoisted; they must be defined before they are used.",
-        isCorrect: false,
-      },
-      {
-        text: "It does not have its own `this` binding and inherits `this` from the surrounding scope.",
-        rationale: "Arrow functions use Lexical Scoping for `this`.",
+          "The hoisting and lack of block scope in `var` often leads to bugs, making `let` and `const` the preferred modern keywords.",
         isCorrect: true,
       },
       {
-        text: "It is automatically bound to the global `window` object.",
-        isCorrect: false,
+        text: "static",
         rationale:
-          "Traditional functions can sometimes be bound to the global object, but arrow functions specifically avoid having their own binding.",
+          "`static` is used in class definitions, not for general variable declaration.",
+        isCorrect: false,
       },
     ],
-    hint: "Look at how it handles its context or execution environment.",
+    hint: "This keyword was the only option for variable declaration before ECMAScript 2015 (ES6).",
   },
   {
-    id: 44,
+    id: 79,
     topic: "JavaScript",
     question:
-      "Which method is used to select the first element in the document that matches a specified CSS selector?",
+      "What is the primary way JavaScript allows code to run when a user interacts with an element (e.g., clicks a button)?",
     answerOptions: [
       {
-        text: "document.getElementById()",
+        text: "Using CSS media queries.",
         rationale:
-          "This method selects an element by its ID attribute, not a CSS selector.",
+          "CSS media queries handle responsive styling, not code execution.",
         isCorrect: false,
       },
       {
-        text: "document.getElementsByClassName()",
-        rationale:
-          "This method returns a collection of elements by class name.",
+        text: "By modifying the HTML structure using the `<meta>` tag.",
+        rationale: "The `<meta>` tag is for document metadata.",
         isCorrect: false,
       },
       {
-        text: "document.querySelector()",
+        text: "By listening for specific events on DOM elements.",
         rationale:
-          "This method returns the first Element within the document that matches the specified selector(s).",
+          "JavaScript uses event listeners (like `addEventListener`) to execute functions based on user actions.",
         isCorrect: true,
       },
       {
-        text: "document.querySelectorAll()",
-        rationale: "This method returns a list of all matching elements.",
+        text: "By checking the global variable `isClicked` every second.",
+        rationale: "This describes polling, which is inefficient.",
         isCorrect: false,
       },
     ],
-    hint: "This is the go-to method for selecting a single element using a CSS-like string.",
+    hint: "This mechanism connects a user action to a piece of code.",
   },
   {
-    id: 45,
-    topic: "JavaScript",
-    question: "What does the `await` keyword do in an `async` function?",
-    answerOptions: [
-      {
-        text: "It throws an error if the Promise is not resolved within a specified time limit.",
-        rationale: "The `await` keyword does not handle timeouts.",
-        isCorrect: false,
-      },
-      {
-        text: "It automatically converts a traditional function into a Promise.",
-        rationale: "The `async` keyword does this.",
-        isCorrect: false,
-      },
-      {
-        text: "It immediately executes the next line of code without waiting for the Promise to complete.",
-        rationale: "This is the behavior of non-awaited asynchronous code.",
-        isCorrect: false,
-      },
-      {
-        text: "It pauses the execution of the `async` function until the `Promise` is settled (resolved or rejected).",
-        rationale:
-          "`await` makes asynchronous code execution appear sequential (synchronous).",
-        isCorrect: true,
-      },
-    ],
-    hint: "This keyword makes working with promises feel like traditional, blocking code.",
-  },
-  {
-    id: 46,
+    id: 80,
     topic: "JavaScript",
     question:
-      "Which array method executes a provided function once for each array element and returns a **new** array?",
+      "Which of the following is NOT a fundamental JavaScript data type?",
+    answerOptions: [
+      {
+        text: "String",
+        rationale: "Strings are fundamental.",
+        isCorrect: false,
+      },
+      {
+        text: "Boolean",
+        rationale: "Booleans are fundamental.",
+        isCorrect: false,
+      },
+      {
+        text: "Array",
+        rationale:
+          "Arrays are a type of **Object**, not a primitive data type, despite their frequent use.",
+        isCorrect: true,
+      },
+      {
+        text: "Symbol",
+        rationale: "Symbols are a primitive data type introduced in ES6.",
+        isCorrect: false,
+      },
+    ],
+    hint: "The `typeof` operator returns 'object' for this type.",
+  },
+  {
+    id: 81,
+    topic: "JavaScript",
+    question: "What is the result of the expression `10 + '5'` in JavaScript?",
+    answerOptions: [
+      {
+        text: "15 (Number)",
+        rationale:
+          "The number 10 is coerced to a string, resulting in concatenation.",
+        isCorrect: false,
+      },
+      {
+        text: "510 (Number)",
+        rationale: "The order is incorrect.",
+        isCorrect: false,
+      },
+      {
+        text: "'105' (String)",
+        rationale:
+          "When using the `+` operator with a string and a number, the number is coerced into a string, resulting in concatenation.",
+        isCorrect: true,
+      },
+      {
+        text: "Error (Cannot mix types)",
+        rationale:
+          "JavaScript's loose typing allows this operation via type coercion.",
+        isCorrect: false,
+      },
+    ],
+    hint: "The `+` operator acts as a concatenation operator when a string is present.",
+  },
+  {
+    id: 82,
+    topic: "JavaScript",
+    question:
+      "What is the main benefit of using **Arrow Functions** (`=>`) over traditional function expressions?",
+    answerOptions: [
+      {
+        text: "They are hoisted like `var` declarations, making them callable anywhere.",
+        rationale: "They are not hoisted; they must be defined before use.",
+        isCorrect: false,
+      },
+      {
+        text: "They always return a value implicitly without needing a `return` keyword.",
+        rationale:
+          "They only implicitly return when using concise body syntax (no curly braces).",
+        isCorrect: false,
+      },
+      {
+        text: "They do not have their own `this` binding, instead inheriting `this` from the surrounding lexical scope.",
+        rationale:
+          "This 'lexical `this`' feature is the main advantage, simplifying context handling, especially in callbacks.",
+        isCorrect: true,
+      },
+      {
+        text: "They allow for multiple arguments to be passed without using parentheses.",
+        rationale: "Parentheses are required for multiple arguments.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This feature helps avoid common context confusion, especially in event handlers and React components.",
+  },
+  {
+    id: 83,
+    topic: "JavaScript",
+    question:
+      "Which of the following JavaScript values is considered **falsy**?",
+    answerOptions: [
+      {
+        text: "[] (Empty array)",
+        rationale: "An empty array is technically truthy.",
+        isCorrect: false,
+      },
+      {
+        text: '"0" (String zero)',
+        rationale: "Any non-empty string is truthy.",
+        isCorrect: false,
+      },
+      {
+        text: "undefined",
+        rationale:
+          'Along with `null`, `0`, `""`, `false`, and `NaN`, `undefined` is falsy.',
+        isCorrect: true,
+      },
+      {
+        text: "{} (Empty object)",
+        rationale: "An empty object is technically truthy.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This value indicates a variable has been declared but not assigned a value.",
+  },
+  {
+    id: 84,
+    topic: "JavaScript",
+    question:
+      "Which loop is best suited for iterating directly over the **values** of an array or other iterable object?",
+    answerOptions: [
+      {
+        text: "for (let key in object) {...}",
+        rationale:
+          "The `for...in` loop iterates over object **keys** (property names/indices).",
+        isCorrect: false,
+      },
+      {
+        text: "while (condition) {...}",
+        rationale:
+          "The `while` loop is condition-controlled, not designed specifically for collection iteration.",
+        isCorrect: false,
+      },
+      {
+        text: "for (let value of iterable) {...}",
+        rationale:
+          "The `for...of` loop is designed to iterate directly over the **values** stored in an iterable collection.",
+        isCorrect: true,
+      },
+      {
+        text: "do...while loop",
+        rationale: "The `do...while` loop is condition-controlled.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This loop structure is the most modern and readable for array content.",
+  },
+  {
+    id: 85,
+    topic: "JavaScript",
+    question:
+      "What is the correct method for selecting the *first* HTML element that matches a given CSS selector string in the DOM?",
+    answerOptions: [
+      {
+        text: "document.getElementById('id')",
+        rationale: "This selects only by ID, not a general CSS selector.",
+        isCorrect: false,
+      },
+      {
+        text: "document.querySelectorAll('.class')",
+        rationale: "This returns a list of *all* matching elements.",
+        isCorrect: false,
+      },
+      {
+        text: "document.querySelector('selector')",
+        rationale:
+          "This method returns the first Element that matches the specified group of selectors.",
+        isCorrect: true,
+      },
+      {
+        text: "document.getElementsByTagName('tag')[0]",
+        rationale: "This is inefficient; `querySelector` is the standard tool.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This DOM method uses the single form of its name.",
+  },
+  {
+    id: 86,
+    topic: "JavaScript",
+    question:
+      "Which array method creates a **new array** by calling a function for every element in the original array and returning the result?",
     answerOptions: [
       {
         text: "forEach()",
-        rationale:
-          "`forEach()` executes a function for each element but returns `undefined`.",
+        rationale: "Returns `undefined` and is used for side effects.",
         isCorrect: false,
       },
       {
         text: "filter()",
         rationale:
-          "`filter()` returns a new array containing only elements that pass a test.",
-        isCorrect: false,
-      },
-      {
-        text: "reduce()",
-        rationale: "`reduce()` reduces the array to a single output value.",
+          "Returns a new array containing a *subset* of elements that pass a test.",
         isCorrect: false,
       },
       {
         text: "map()",
         rationale:
-          "The `map()` method creates a new array populated with the results of calling a provided function on every element in the calling array.",
+          "The `map()` method transforms each element and collects the results into a new array.",
         isCorrect: true,
       },
+      {
+        text: "reduce()",
+        rationale: "Reduces the array to a single output value.",
+        isCorrect: false,
+      },
     ],
-    hint: "This is the primary method for transforming all elements into a new, parallel array.",
+    hint: "This method is essential for transforming arrays (e.g., converting a list of numbers to a list of doubled numbers).",
   },
   {
-    id: 47,
+    id: 87,
     topic: "JavaScript",
     question:
-      'How do you access a property of an object named `person` with a key that contains a space, like "first name"?',
+      "What does the **Asynchronous** concept in JavaScript primarily allow the browser to do?",
     answerOptions: [
       {
-        text: "person.first name",
-        rationale: "Dot notation cannot be used for keys containing spaces.",
-        isCorrect: false,
-      },
-      {
-        text: 'person("first name")',
-        rationale: "Parentheses are used for function calls.",
-        isCorrect: false,
-      },
-      {
-        text: 'person["first name"]',
+        text: "Execute multiple functions simultaneously on different processor cores.",
         rationale:
-          "Bracket notation (`[]`) must be used when accessing object properties with names that are not valid JavaScript identifiers (e.g., contain spaces or hyphens).",
+          "JavaScript is typically single-threaded; asynchronous code handles waiting, not parallel execution.",
+        isCorrect: false,
+      },
+      {
+        text: "Wait for slow operations (like network requests) without blocking the main user interface thread.",
+        rationale:
+          "Asynchronous operations prevent the UI from freezing while waiting for I/O tasks to complete.",
         isCorrect: true,
       },
       {
-        text: "person.get('first name')",
-        rationale:
-          "This is a method that might be available on a Map, but not the standard object access mechanism.",
+        text: "Ensure that all code is executed in the exact order it appears in the script file.",
+        rationale: "This describes **synchronous** execution.",
+        isCorrect: false,
+      },
+      {
+        text: "Manipulate the properties of CSS elements.",
+        rationale: "This is DOM/CSS manipulation.",
         isCorrect: false,
       },
     ],
-    hint: "This notation is necessary when the property name isn't a simple, legal variable name.",
+    hint: "This concept keeps the user interface responsive while fetching data.",
   },
   {
-    id: 48,
+    id: 88,
+    topic: "JavaScript",
+    question: "What is the purpose of the `fetch` API?",
+    answerOptions: [
+      {
+        text: "To create new DOM elements in the document.",
+        rationale: "DOM manipulation methods handle this.",
+        isCorrect: false,
+      },
+      {
+        text: "To standardize the way JavaScript handles function call contexts.",
+        rationale: "This is related to `this` and arrow functions.",
+        isCorrect: false,
+      },
+      {
+        text: "To fetch data from external websites and APIs asynchronously.",
+        rationale:
+          "The `fetch` API is the modern, Promise-based standard for making network requests (HTTP requests).",
+        isCorrect: true,
+      },
+      {
+        text: "To manage client-side browser history and navigation.",
+        rationale: "This is handled by the `history` object.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This is the primary tool for consuming APIs in modern web applications.",
+  },
+  {
+    id: 89,
     topic: "JavaScript",
     question:
-      "What is the purpose of the **strict equality** operator (`===`)?",
+      "In the context of asynchronous JavaScript, a **Promise** represents what?",
     answerOptions: [
       {
-        text: "It compares two values for equality, allowing type coercion if necessary.",
-        rationale: "This describes the loose equality operator (`==`).",
+        text: "The immediate successful result of a function call.",
+        rationale:
+          "The result is what the Promise resolves to, but the Promise itself is the wrapper.",
         isCorrect: false,
       },
       {
-        text: "It checks if two variables reference the exact same object in memory.",
-        rationale:
-          "While true for objects, its primary rule is for type and value comparison.",
+        text: "A guaranteed synchronous execution of code before the next line runs.",
+        rationale: "Promises are asynchronous.",
         isCorrect: false,
       },
       {
-        text: "It compares two values for equality without performing type coercion.",
+        text: "A value that may be available now, or in the future, or never.",
         rationale:
-          "`===` checks if both the value AND the data type are the same.",
+          "A Promise is a placeholder for the final result of an asynchronous operation, which can be resolved (fulfilled) or rejected (error).",
         isCorrect: true,
       },
       {
-        text: "It is used for assignment within a conditional expression.",
-        rationale: "Assignment is done with the single equals sign (`=`).",
+        text: "A fixed time delay for code execution, regardless of the operation's speed.",
+        rationale: "This is the job of `setTimeout`.",
         isCorrect: false,
       },
     ],
-    hint: "It's a safer comparison operator that avoids automatic type conversion.",
+    hint: "Think of it as a placeholder for an eventual outcome.",
   },
   {
-    id: 49,
-    topic: "JavaScript",
-    question: "What value is considered **falsy** in JavaScript?",
-    answerOptions: [
-      {
-        text: "{}",
-        rationale: "An empty object (`{}`) is considered truthy.",
-        isCorrect: false,
-      },
-      {
-        text: '"false"',
-        rationale:
-          'The string containing the word "false" is considered truthy because it\'s a non-empty string.',
-        isCorrect: false,
-      },
-      {
-        text: "null",
-        rationale:
-          'In JavaScript, falsy values include `false`, `0`, `""` (empty string), `null`, `undefined`, and `NaN`.',
-        isCorrect: true,
-      },
-      {
-        text: "[]",
-        rationale: "An empty array (`[]`) is generally considered truthy.",
-        isCorrect: false,
-      },
-    ],
-    hint: "This is one of the distinct values that evaluates to `false` in a boolean context.",
-  },
-  {
-    id: 50,
+    id: 90,
     topic: "JavaScript",
     question:
-      "Which loop is most suitable for iterating over the *values* of an iterable object (like an Array)?",
+      "Which two keywords are typically used together to make asynchronous code appear synchronous and more readable?",
     answerOptions: [
       {
-        text: "for...in",
-        rationale:
-          "`for...in` iterates over the *keys* (property names/indices).",
+        text: "function and return",
+        rationale: "Standard function syntax.",
         isCorrect: false,
       },
       {
-        text: "while",
-        rationale:
-          "The `while` loop is a condition-controlled loop that is less idiomatic for simple array iteration.",
+        text: "try and catch",
+        rationale: "Used for error handling.",
         isCorrect: false,
       },
       {
-        text: "for...of",
+        text: "async and await",
         rationale:
-          "The `for...of` statement creates a loop iterating over iterable objects, retrieving the value of each element.",
+          "An `async` function is defined to contain asynchronous logic, and `await` pauses execution until a Promise resolves, making the code sequential.",
         isCorrect: true,
       },
       {
-        text: "do...while",
-        rationale:
-          "The `do...while` loop executes the body at least once before checking the condition.",
+        text: "then and catch",
+        rationale: "Used for chaining raw Promises.",
         isCorrect: false,
       },
     ],
-    hint: "This is the modern, simpler way to iterate directly over the content of collections.",
+    hint: "The first keyword defines the function's nature; the second tells the function where to pause.",
   },
   {
-    id: 51,
+    id: 91,
     topic: "JavaScript",
     question:
-      "Which method is used to remove whitespace from both ends of a string?",
+      "How can you check if two variables, `a` and `b`, have the same value **and** the same data type in JavaScript?",
     answerOptions: [
       {
-        text: "strip()",
-        rationale:
-          "`strip()` is a common method in other languages (like Python), but not standard JavaScript.",
+        text: "if (a = b)",
+        rationale: "This is an assignment, not a comparison.",
         isCorrect: false,
       },
       {
-        text: "clean()",
-        rationale: "`clean()` is not a standard JavaScript string method.",
+        text: "if (a == b)",
+        rationale:
+          "This is loose equality, allowing type coercion (e.g., `5 == '5'` is true).",
         isCorrect: false,
       },
       {
-        text: "substring()",
+        text: "if (a === b)",
         rationale:
-          "`substring()` extracts a portion of a string based on index.",
-        isCorrect: false,
-      },
-      {
-        text: "trim()",
-        rationale:
-          "The `trim()` method removes whitespace characters from the start and end of a string.",
+          "The strict equality operator checks both value and type without coercion.",
         isCorrect: true,
       },
+      {
+        text: "if (a !== b)",
+        rationale: "This checks for strict inequality.",
+        isCorrect: false,
+      },
     ],
-    hint: "This is useful for cleaning up user input that might have extra spaces.",
+    hint: "This comparison operator is often recommended for safety.",
   },
   {
-    id: 52,
+    id: 92,
+    topic: "JavaScript",
+    question: "What is **Type Coercion** in JavaScript?",
+    answerOptions: [
+      {
+        text: "An error that occurs when mixing different data types in an expression.",
+        rationale: "Coercion is what *prevents* the error in loose equality.",
+        isCorrect: false,
+      },
+      {
+        text: "The process where the JavaScript engine automatically converts one data type to another to complete an operation.",
+        rationale:
+          "This happens implicitly with the loose equality (`==`) operator or the `+` operator with strings.",
+        isCorrect: true,
+      },
+      {
+        text: "The use of the `Number()` or `String()` functions to manually convert types.",
+        rationale:
+          "This is **Type Conversion** (explicit), not coercion (implicit).",
+        isCorrect: false,
+      },
+      {
+        text: "A feature introduced by TypeScript to enforce strict type checking.",
+        rationale: "TypeScript helps *avoid* coercion through explicit typing.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This is an implicit action taken by the runtime environment.",
+  },
+  {
+    id: 93,
     topic: "JavaScript",
     question:
-      "In the context of an event listener, what is the `callback` function?",
+      "Which of the following array methods is used to return a **single accumulated value** based on applying a callback function to each element?",
     answerOptions: [
       {
-        text: "A string that specifies the event to listen for (e.g., 'click').",
-        rationale: "The event type is the first argument.",
+        text: "map()",
+        rationale: "Returns a new array.",
         isCorrect: false,
       },
       {
-        text: "An object that stores data to be passed to the event handler.",
-        rationale: "The data is often passed via the event object.",
+        text: "filter()",
+        rationale: "Returns a new array (subset).",
         isCorrect: false,
       },
       {
-        text: "A function that is passed as an argument to another function and is executed later.",
+        text: "reduce()",
         rationale:
-          "A callback function is one that gets executed once the event (or a promise) has completed.",
+          "The `reduce()` method iterates and reduces the array to a single value (e.g., a sum, product, or single object).",
         isCorrect: true,
       },
       {
-        text: "A Boolean value indicating whether the event should bubble or capture.",
+        text: "find()",
         rationale:
-          "The bubbling/capturing option is an optional third argument.",
+          "Returns the first element that satisfies the testing function.",
         isCorrect: false,
       },
     ],
-    hint: "It's a function designed to be called by another mechanism at an appropriate time.",
+    hint: "This method takes an optional initial value for the accumulator.",
   },
   {
-    id: 53,
-    topic: "JavaScript",
-    question: 'What is the result of the expression `"10" + 5` in JavaScript?',
-    answerOptions: [
-      {
-        text: "15",
-        rationale:
-          "The number is coerced to a string; concatenation happens first.",
-        isCorrect: false,
-      },
-      {
-        text: '"15"',
-        rationale:
-          "The number is coerced to a string, resulting in concatenation, not mathematical addition.",
-        isCorrect: false,
-      },
-      {
-        text: "105",
-        rationale:
-          "The result is a number if a non-string operator is used, which is not the case here.",
-        isCorrect: false,
-      },
-      {
-        text: '"105"',
-        rationale:
-          'The `+` operator, when used with strings, performs string concatenation, coercing the number `5` into the string `"5"` .',
-        isCorrect: true,
-      },
-    ],
-    hint: "String concatenation takes precedence when the operands have mixed types.",
-  },
-  {
-    id: 54,
+    id: 94,
     topic: "JavaScript",
     question:
-      "Given `const [a, b] = [1, 2, 3];`, what are the values of `a` and `b`?",
+      "Which DOM method is used to create a *new* HTML element node that you can later add to the document?",
     answerOptions: [
       {
-        text: "a is 1, b is 3.",
+        text: "document.createElement('tag')",
         rationale:
-          "Destructuring is based on order, so `b` would be the second element.",
-        isCorrect: false,
-      },
-      {
-        text: "a is 1, b is 2.",
-        rationale:
-          "Array destructuring assigns variables based on the position in the array; the third element is simply ignored.",
+          "This method instantiates a new HTML element node in memory.",
         isCorrect: true,
       },
       {
-        text: "a is [1, 2], b is 3.",
-        rationale:
-          "The expression uses array destructuring, not the rest parameter for `a`.",
+        text: "document.createTextNode('text')",
+        rationale: "This creates a new text node, not an element node.",
         isCorrect: false,
       },
       {
-        text: "a is undefined, b is undefined.",
+        text: "document.appendNode('tag')",
+        rationale: "`appendNode` is not a standard DOM method.",
+        isCorrect: false,
+      },
+      {
+        text: "document.innerHTML = '<tag>'",
         rationale:
-          "The variables successfully receive the first two values from the array.",
+          "This injects HTML into an existing element, but does not create a separate element node.",
         isCorrect: false,
       },
     ],
-    hint: "The variables only receive values for the elements they are explicitly mapped to.",
+    hint: "This method takes the tag name as a string argument.",
   },
   {
-    id: 55,
+    id: 95,
     topic: "JavaScript",
     question:
-      "Which function is used to repeatedly execute a block of code after a specified delay?",
+      "How do you correctly attach an event handler to a button element retrieved using `document.querySelector('#myButton')`?",
     answerOptions: [
       {
-        text: "setTimeout()",
+        text: "myButton.onclick = myFunction;",
         rationale:
-          "`setTimeout()` executes a block of code only once after the delay.",
+          "This is an older method that only allows one handler per event.",
         isCorrect: false,
       },
       {
-        text: "setInterval()",
+        text: "myButton.event = 'click', myFunction;",
+        rationale: "Incorrect syntax.",
+        isCorrect: false,
+      },
+      {
+        text: "myButton.addEventListener('click', myFunction);",
         rationale:
-          "`setInterval()` repeatedly calls a function or executes a code snippet, with a fixed time delay between each call.",
+          "The standard and modern method for attaching multiple event listeners to an element.",
         isCorrect: true,
       },
       {
-        text: "requestAnimationFrame()",
-        rationale:
-          "This function is optimized for animations and runs before the browser's next repaint.",
-        isCorrect: false,
-      },
-      {
-        text: "setDelay()",
-        rationale: "`setDelay()` is not a standard JavaScript timing function.",
+        text: "myButton.handle('click', myFunction);",
+        rationale: "Not a standard DOM method.",
         isCorrect: false,
       },
     ],
-    hint: "This function is specifically for recurring execution, unlike its single-use counterpart.",
+    hint: "The method allows you to add multiple listeners for the same event type.",
   },
   {
-    id: 56,
+    id: 96,
     topic: "JavaScript",
     question:
-      "What is the behavior of `Promise.all([p1, p2, p3])` if `p2` rejects?",
+      "What is the purpose of the `break` statement inside a loop (e.g., `for` or `while`)?",
     answerOptions: [
       {
-        text: "It waits for all promises to settle, returning the results of the resolved ones and ignoring the rejected one.",
-        rationale:
-          "This describes `Promise.allSettled`. `Promise.all` fails fast.",
+        text: "To skip the current iteration and proceed to the next one.",
+        rationale: "This is the job of the `continue` statement.",
         isCorrect: false,
       },
       {
-        text: "It immediately rejects with the reason from `p2` without waiting for `p1` or `p3`.",
-        rationale:
-          '`Promise.all` is "fail-fast"; it rejects as soon as any of the input promises rejects.',
+        text: "To throw an exception and stop the entire program execution.",
+        rationale: "The `throw` statement handles exceptions.",
+        isCorrect: false,
+      },
+      {
+        text: "To exit the loop immediately and continue execution after the loop's body.",
+        rationale: "The `break` statement halts the loop entirely.",
         isCorrect: true,
       },
       {
-        text: "It resolves successfully, but the result array contains `undefined` for the rejected promise.",
-        rationale: "This is incorrect for `Promise.all`.",
-        isCorrect: false,
-      },
-      {
-        text: "It is converted into a synchronous function call.",
-        rationale: "Promises are inherently asynchronous.",
+        text: "To introduce a small pause in execution for debugging.",
+        rationale:
+          "The `debugger` statement or `console.log` is used for debugging.",
         isCorrect: false,
       },
     ],
-    hint: 'This method is known for its "fail-fast" nature.',
+    hint: "This command causes an immediate termination of the nearest enclosing loop.",
   },
   {
-    id: 57,
+    id: 97,
+    topic: "JavaScript",
+    question: "The `JSON.parse()` method is used for what purpose?",
+    answerOptions: [
+      {
+        text: "To convert a JavaScript object into a JSON string.",
+        rationale: "This is the job of `JSON.stringify()`.",
+        isCorrect: false,
+      },
+      {
+        text: "To load data from a URL using the `fetch` API.",
+        rationale: "The `fetch` API handles network requests.",
+        isCorrect: false,
+      },
+      {
+        text: "To parse a JSON string and convert it into a native JavaScript object.",
+        rationale:
+          "This is the essential function for working with data received from an API.",
+        isCorrect: true,
+      },
+      {
+        text: "To validate that a JavaScript object adheres to a specific structure.",
+        rationale: "This requires external validation libraries or TypeScript.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This method is the final step after receiving a string of data from an API.",
+  },
+  {
+    id: 98,
     topic: "JavaScript",
     question:
-      "What is the correct way to define a default value of `1` for the parameter `count` in a function?",
+      "How can you modify the content of an HTML element with the ID 'message' using JavaScript?",
     answerOptions: [
       {
-        text: "function increment(count || 1) { ... }",
-        rationale:
-          "The OR operator (`||`) is used inside the function body, not the signature.",
+        text: "document.getElementById('message').value = 'New text';",
+        rationale: "`.value` is primarily for form inputs.",
         isCorrect: false,
       },
       {
-        text: "function increment(count: 1) { ... }",
+        text: "document.getElementById('message').textContent = 'New text';",
         rationale:
-          "This is incorrect TypeScript or JavaScript syntax for a default value.",
-        isCorrect: false,
-      },
-      {
-        text: "function increment(count = 1) { ... }",
-        rationale:
-          "Default parameters are defined in the function signature using the assignment operator (`=`).",
+          "This property correctly sets the text content of the element, stripping out any HTML tags.",
         isCorrect: true,
       },
       {
-        text: "function increment(count: number = 1) { ... }",
-        rationale:
-          "This is the correct TypeScript syntax, but the simplest JS form omits the type annotation.",
+        text: "document.getElementById('message').content = 'New text';",
+        rationale: "The property name is incorrect.",
+        isCorrect: false,
+      },
+      {
+        text: "document.getElementById('message').html = 'New text';",
+        rationale: "The property name is `.innerHTML` if including HTML.",
         isCorrect: false,
       },
     ],
-    hint: "The default value is set directly in the parameter list.",
+    hint: "This property is generally safer than `.innerHTML` as it prevents cross-site scripting (XSS) attacks.",
   },
   {
-    id: 58,
+    id: 99,
     topic: "JavaScript",
     question:
-      "What is the primary use of the spread syntax (`...`) with an array?",
+      "The `catch` block in a `Promise` chain or `try...catch` statement is used for what?",
     answerOptions: [
       {
-        text: "To concatenate arrays, ensuring the original arrays are not modified.",
+        text: "To execute code that should always run, regardless of success or failure.",
+        rationale: "This is the job of the `finally` block.",
+        isCorrect: false,
+      },
+      {
+        text: "To define the operation that will be executed if the Promise successfully resolves.",
+        rationale: "This is the job of the `then` block.",
+        isCorrect: false,
+      },
+      {
+        text: "To handle any errors or rejections that occur during the preceding synchronous or asynchronous operation.",
         rationale:
-          "The spread syntax creates shallow copies, making it safe for concatenation.",
+          "The `catch` block intercepts and handles exceptions or rejected Promises.",
         isCorrect: true,
       },
       {
-        text: "To convert array elements into strings for logging.",
+        text: "To define the initial value of the Promise before execution begins.",
         rationale:
-          "This is typically done with `join()` or `JSON.stringify()`.",
-        isCorrect: false,
-      },
-      {
-        text: "To define a new function that accepts an array as its first argument.",
-        rationale:
-          "This is the rest parameter syntax when used in a function parameter list.",
-        isCorrect: false,
-      },
-      {
-        text: "To perform deep cloning of complex objects nested within the array.",
-        rationale: "The spread operator only performs a shallow copy.",
+          "The initial value is defined when creating the Promise object.",
         isCorrect: false,
       },
     ],
-    hint: "It is excellent for immutability when combining or copying collections.",
+    hint: "This block is essential for gracefully managing failures.",
   },
   {
-    id: 59,
+    id: 100,
     topic: "JavaScript",
     question:
-      "In JavaScript, how does the hoisting behavior of `let` and `const` differ from `var`?",
+      "In a `for` loop defined as `for (let i = 0; i < 5; i++)`, what is the final value of the `i` variable immediately after the loop finishes executing?",
     answerOptions: [
       {
-        text: "They are not hoisted at all.",
-        rationale: "All declarations are technically hoisted.",
-        isCorrect: false,
-      },
-      {
-        text: "They are only hoisted within block scopes, not function scopes.",
-        rationale: "Hoisting is based on variable type, not scope type.",
-        isCorrect: false,
-      },
-      {
-        text: 'Their declarations are hoisted, but initialization is not, creating a "Temporal Dead Zone".',
+        text: "4",
         rationale:
-          "This is the definition of the TDZ, where variables exist but cannot be accessed until initialization.",
-        isCorrect: true,
-      },
-      {
-        text: "They are hoisted only in strict mode, while `var` is hoisted always.",
-        rationale: "Hoisting behavior is consistent regardless of strict mode.",
-        isCorrect: false,
-      },
-    ],
-    hint: "The concept that prevents accessing the variable before its definition.",
-  },
-  {
-    id: 60,
-    topic: "JavaScript",
-    question: "What is the result of the comparison `NaN === NaN`?",
-    answerOptions: [
-      {
-        text: "true",
-        rationale:
-          "NaN is the only value in JavaScript that is not equal to itself.",
+          "The loop executes up to `i=4`. The next increment to `i=5` causes the condition `i < 5` to fail, and the loop breaks.",
         isCorrect: false,
       },
       {
-        text: "false",
+        text: "5",
         rationale:
-          "NaN (Not a Number) is specifically defined as not equal to any value, including itself, to represent the result of an undefined mathematical operation.",
+          "The loop breaks when `i` is incremented to 5, as the condition `i < 5` becomes false. The variable holds this final value.",
         isCorrect: true,
       },
       {
         text: "undefined",
-        rationale: "The result of a comparison is always a boolean value.",
+        rationale: "`i` is defined using `let` and holds its final value.",
+        isCorrect: false,
+      },
+      {
+        text: "0",
+        rationale: "0 is the starting value.",
+        isCorrect: false,
+      },
+    ],
+    hint: "The loop stops *after* the increment step fails the condition.",
+  },
+  {
+    id: 101,
+    topic: "JavaScript",
+    question:
+      "What is the result of using the **logical AND** operator (`&&`) in an expression like `true && 'hello'`?",
+    answerOptions: [
+      {
+        text: "true",
+        rationale:
+          "Logical AND returns the value of the second operand if the first operand is truthy.",
+        isCorrect: false,
+      },
+      {
+        text: "'hello'",
+        rationale:
+          "When using `&&`, if the first operand is truthy, it returns the second operand.",
+        isCorrect: true,
+      },
+      {
+        text: "false",
+        rationale: "Both operands are truthy, so `false` is incorrect.",
         isCorrect: false,
       },
       {
         text: "Error",
-        rationale:
-          "The comparison is syntactically valid and returns a boolean.",
+        rationale: "JavaScript allows this through short-circuit evaluation.",
         isCorrect: false,
       },
     ],
-    hint: "This is a unique characteristic of a special numeric value.",
+    hint: "This is a form of short-circuit evaluation that returns a value, not necessarily a Boolean.",
   },
-
-  // ------------------------------------
-  // --- REACT QUESTIONS (IDs 61 - 80) ---
-  // ------------------------------------
   {
-    id: 61,
-    topic: "React",
-    question: "What is the purpose of the curly braces `{}` in JSX?",
+    id: 102,
+    topic: "JavaScript",
+    question:
+      "Which array method returns a **Boolean** value indicating whether *at least one* element in the array satisfies a provided testing function?",
     answerOptions: [
       {
-        text: "To define a component's local state.",
-        rationale: "State is defined using the `useState` hook.",
+        text: "includes()",
+        rationale:
+          "Checks if an element *exists* in the array, but doesn't run a testing function.",
         isCorrect: false,
       },
       {
-        text: "To embed JavaScript expressions, variables, or functions within the JSX structure.",
+        text: "every()",
+        rationale: "Checks if *all* elements satisfy the test.",
+        isCorrect: false,
+      },
+      {
+        text: "some()",
         rationale:
-          "Curly braces are used to escape from the JSX syntax back into JavaScript for dynamic content.",
+          "The `some()` method returns `true` if it finds a matching element, and `false` otherwise.",
         isCorrect: true,
       },
       {
-        text: "To enclose CSS styles for inline styling.",
-        rationale:
-          "While used for inline styles, the primary function is to contain any valid JavaScript expression.",
-        isCorrect: false,
-      },
-      {
-        text: "To define a custom hook.",
-        rationale: "Custom hooks are defined as standard functions.",
+        text: "filter()",
+        rationale: "Returns a new array (a subset).",
         isCorrect: false,
       },
     ],
-    hint: "This mechanism allows you to inject dynamic data directly into the markup.",
+    hint: "The method name implies partial fulfillment of the condition.",
   },
   {
-    id: 62,
-    topic: "React",
+    id: 103,
+    topic: "JavaScript",
     question:
-      "In React, what is the term for a plain JavaScript object that stores a component's local data and is managed within the component?",
+      "The `window.setTimeout()` function is asynchronous. What does it return?",
     answerOptions: [
       {
-        text: "Props",
-        rationale: "Props are read-only data passed from a parent component.",
+        text: "A Promise that resolves after the specified delay.",
+        rationale: "It returns a numeric ID, not a Promise.",
         isCorrect: false,
+      },
+      {
+        text: "The result of the callback function execution.",
+        rationale:
+          "The result of the callback is returned much later, and `setTimeout` itself returns an ID.",
+        isCorrect: false,
+      },
+      {
+        text: "A unique numeric ID that can be used later to cancel the execution.",
+        rationale: "This ID is used with `clearTimeout()`.",
+        isCorrect: true,
+      },
+      {
+        text: "undefined",
+        rationale: "It returns a number.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This is the token needed if you want to abort the scheduled task.",
+  },
+  {
+    id: 104,
+    topic: "JavaScript",
+    question:
+      "Which of the following is the standard method for removing a DOM element named `myElement` from its parent?",
+    answerOptions: [
+      {
+        text: "myElement.remove();",
+        rationale:
+          "The modern, concise method to remove an element from the DOM.",
+        isCorrect: true,
+      },
+      {
+        text: "myElement.delete();",
+        rationale: "`delete` is used for object properties.",
+        isCorrect: false,
+      },
+      {
+        text: "myElement.parentElement.removeChild(myElement);",
+        rationale:
+          "This is the older, verbose method; `remove()` is preferred.",
+        isCorrect: false,
+      },
+      {
+        text: "document.removeChild(myElement);",
+        rationale:
+          "The element must be removed from its immediate parent, not the `document` object.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This method is simple and acts directly on the element itself.",
+  },
+  {
+    id: 105,
+    topic: "JavaScript",
+    question:
+      "What is the purpose of the **Spread Syntax** (`...`) when used with an object literal, such as `{ ...obj1, ...obj2 }`?",
+    answerOptions: [
+      {
+        text: "To create a deep clone of the objects, including nested properties.",
+        rationale:
+          "It creates a shallow copy; deep cloning requires extra methods.",
+        isCorrect: false,
+      },
+      {
+        text: "To combine the properties of multiple objects into a new single object.",
+        rationale:
+          "The spread syntax iterates over the properties and copies them to the new object.",
+        isCorrect: true,
+      },
+      {
+        text: "To convert the object into a JSON string for transmission.",
+        rationale: "This is the job of `JSON.stringify()`.",
+        isCorrect: false,
+      },
+      {
+        text: "To reference a function that should be executed immediately.",
+        rationale: "This is unrelated to function execution.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This is the modern, immutable way to merge objects.",
+  },
+  {
+    id: 106,
+    topic: "JavaScript",
+    question:
+      "How do you access the third element (index 2) of an array named `data`?",
+    answerOptions: [
+      {
+        text: "data[3]",
+        rationale:
+          "Array indices are zero-based, so index 3 is the fourth element.",
+        isCorrect: false,
+      },
+      {
+        text: "data.at(2)",
+        rationale: "`data.at()` is a modern method, and index 2 is correct.",
+        isCorrect: true,
+      },
+      {
+        text: "data.get(3)",
+        rationale: "Not a standard method for arrays.",
+        isCorrect: false,
+      },
+      {
+        text: "data.index[2]",
+        rationale: "Incorrect syntax.",
+        isCorrect: false,
+      },
+    ],
+    hint: "The index starts at 0, so the third item is index 2. Both bracket notation and the modern method work.",
+  },
+  {
+    id: 107,
+    topic: "JavaScript",
+    question:
+      "What happens if a variable declared with `const` holds a complex object (e.g., `{ count: 1 }`) and you try to reassign one of its properties?",
+    answerOptions: [
+      {
+        text: "The entire program throws a `TypeError` because `const` prevents all mutation.",
+        rationale:
+          "`const` prevents reassignment of the variable, not mutation of the object it holds.",
+        isCorrect: false,
+      },
+      {
+        text: "The reassignment fails silently, and the property value remains unchanged.",
+        rationale: "The change is successful and is not silent.",
+        isCorrect: false,
+      },
+      {
+        text: "The object property can be successfully modified (e.g., `obj.count = 2`), but the variable itself cannot be reassigned.",
+        rationale:
+          "`const` only protects the binding (the reference to the object), not the contents of the object itself.",
+        isCorrect: true,
+      },
+      {
+        text: "The JavaScript engine automatically converts the variable to `let` to allow mutation.",
+        rationale: "Automatic conversion does not happen.",
+        isCorrect: false,
+      },
+    ],
+    hint: "The keyword protects the 'box' containing the object, not the 'contents' of the object.",
+  },
+  {
+    id: 108,
+    topic: "JavaScript",
+    question:
+      "When attaching an event listener, the event object passed to the callback function contains what method to stop the event from affecting elements further up the DOM tree?",
+    answerOptions: [
+      {
+        text: "event.preventDefault()",
+        rationale:
+          "This stops the browser's default action (e.g., form submission).",
+        isCorrect: false,
+      },
+      {
+        text: "event.breakPropagation()",
+        rationale: "Incorrect method name.",
+        isCorrect: false,
+      },
+      {
+        text: "event.stopPropagation()",
+        rationale:
+          "This method prevents the event from bubbling up to parent elements.",
+        isCorrect: true,
+      },
+      {
+        text: "event.cancelBubble()",
+        rationale: "An older, non-standard property.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This method prevents the event from 'bubbling' up the DOM tree.",
+  },
+  {
+    id: 109,
+    topic: "JavaScript",
+    question: "What is the primary function of the `document.write()` method?",
+    answerOptions: [
+      {
+        text: "To log output to the browser's developer console.",
+        rationale: "This is the function of `console.log()`.",
+        isCorrect: false,
+      },
+      {
+        text: "To write dynamic HTML or text directly to the document *stream*, potentially overwriting all existing content.",
+        rationale:
+          "The method is rarely used in modern JS because it can dangerously overwrite the entire page if called after the page has finished loading.",
+        isCorrect: true,
+      },
+      {
+        text: "To create a new file on the user's local file system.",
+        rationale:
+          "Client-side JS cannot write arbitrary files to the user's system.",
+        isCorrect: false,
+      },
+      {
+        text: "To define the `doctype` and root structure of the HTML document.",
+        rationale: "This is done in the HTML source file.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This method is often discouraged due to its powerful and potentially destructive behavior.",
+  },
+  {
+    id: 110,
+    topic: "JavaScript",
+    question: "Which operator is used to check the data type of a variable?",
+    answerOptions: [
+      {
+        text: "isTypeOf",
+        rationale: "Incorrect syntax.",
+        isCorrect: false,
+      },
+      {
+        text: "instanceof",
+        rationale:
+          "Checks if an object is an instance of a specific constructor.",
+        isCorrect: false,
+      },
+      {
+        text: "typeof",
+        rationale:
+          "The `typeof` operator returns a string indicating the data type of the unevaluated operand.",
+        isCorrect: true,
+      },
+      {
+        text: "dataType",
+        rationale: "Not a standard operator.",
+        isCorrect: false,
+      },
+    ],
+    hint: "Be aware that this operator returns 'object' for arrays and null.",
+  },
+  {
+    id: 111,
+    topic: "JavaScript",
+    question: "What is the purpose of the `trim()` method on a String object?",
+    answerOptions: [
+      {
+        text: "To truncate the string to a maximum length.",
+        rationale:
+          "This is the job of methods like `substring()` or `slice()`.",
+        isCorrect: false,
+      },
+      {
+        text: "To remove leading and trailing whitespace characters from the string.",
+        rationale:
+          "The `trim()` method is the standard way to clean up user input whitespace.",
+        isCorrect: true,
+      },
+      {
+        text: "To remove all spaces and special characters from the string.",
+        rationale:
+          "It only targets leading/trailing whitespace, not all spaces or characters.",
+        isCorrect: false,
+      },
+      {
+        text: "To return the length of the string after removing spaces.",
+        rationale:
+          "It returns the modified string; `length` is a property to get the size.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This is useful for sanitizing user input fields.",
+  },
+  {
+    id: 112,
+    topic: "JavaScript",
+    question:
+      "Which operator performs Nullish Coalescing, returning the right-hand operand only when the left-hand operand is `null` or `undefined`?",
+    answerOptions: [
+      {
+        text: "|| (Logical OR)",
+        rationale:
+          "Returns the right-hand side if the left is *any* falsy value (0, '', false, null, undefined).",
+        isCorrect: false,
+      },
+      {
+        text: "?? (Nullish Coalescing)",
+        rationale:
+          "The `??` operator specifically checks for only `null` or `undefined`, allowing 0 or '' to be returned.",
+        isCorrect: true,
+      },
+      {
+        text: "&& (Logical AND)",
+        rationale: "Returns the right-hand side only if the left is truthy.",
+        isCorrect: false,
+      },
+      {
+        text: "!! (Double Negation)",
+        rationale: "Used to convert any value to its boolean equivalent.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This modern operator is much safer than the Logical OR operator when dealing with numeric zeros or empty strings.",
+  },
+  {
+    id: 113,
+    topic: "JavaScript",
+    question: "What is **event bubbling** in the DOM event system?",
+    answerOptions: [
+      {
+        text: "When an event is handled by the target element and then propagates up to its ancestor elements.",
+        rationale:
+          "Bubbling is the default phase where the event travels from the target back up to the root of the document.",
+        isCorrect: true,
+      },
+      {
+        text: "When an event is captured by the root of the document and then propagates down to the target element.",
+        rationale: "This describes the **Capturing** phase.",
+        isCorrect: false,
+      },
+      {
+        text: "A mechanism that automatically executes code after a network request completes.",
+        rationale: "This is handled by Promises/fetch.",
+        isCorrect: false,
+      },
+      {
+        text: "The process of animating an element's position on the screen.",
+        rationale: "This is handled by CSS transitions or JS animations.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This is the default direction of an event's path in the DOM.",
+  },
+  {
+    id: 114,
+    topic: "JavaScript",
+    question:
+      "How do you correctly define a function named `calculateSum` that takes two parameters, `a` and `b`, using **traditional function declaration** syntax?",
+    answerOptions: [
+      {
+        text: "const calculateSum = (a, b) => { ... }",
+        rationale: "This is Arrow Function syntax.",
+        isCorrect: false,
+      },
+      {
+        text: "function (a, b): calculateSum { ... }",
+        rationale: "Incorrect syntax.",
+        isCorrect: false,
+      },
+      {
+        text: "function calculateSum(a, b) { ... }",
+        rationale:
+          "This is the proper traditional function declaration syntax, which is hoisted.",
+        isCorrect: true,
+      },
+      {
+        text: "let calculateSum = a, b => { ... }",
+        rationale: "Incorrect syntax and keyword usage.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This syntax benefits from being hoisted to the top of its scope.",
+  },
+  {
+    id: 115,
+    topic: "JavaScript",
+    question:
+      "Which object property is used to get or set all the HTML content (including tags) within an element?",
+    answerOptions: [
+      {
+        text: "textContent",
+        rationale: "Gets/sets only the *text* content, excluding HTML tags.",
+        isCorrect: false,
+      },
+      {
+        text: "innerText",
+        rationale: "Similar to `textContent`, but considers rendering layout.",
+        isCorrect: false,
+      },
+      {
+        text: "innerHTML",
+        rationale:
+          "The `innerHTML` property gets or sets the HTML markup content inside an element.",
+        isCorrect: true,
+      },
+      {
+        text: "content",
+        rationale: "Not a standard DOM property for this purpose.",
+        isCorrect: false,
+      },
+    ],
+    hint: "Be cautious using this property when dealing with user-provided input, as it can lead to XSS attacks.",
+  },
+  {
+    id: 116,
+    topic: "React",
+    question:
+      "What is React primarily defined as, according to the official documentation quoted by the course?",
+    answerOptions: [
+      {
+        text: "A complete Model-View-Controller (MVC) framework for front-end development.",
+        rationale:
+          "React is specifically defined as a library for building user interfaces (the 'View' layer), not a full framework.",
+        isCorrect: false,
+      },
+      {
+        text: "A styling solution that compiles CSS into JavaScript objects.",
+        rationale: "React handles UI and logic, not primarily styling.",
+        isCorrect: false,
+      },
+      {
+        text: "A JavaScript library for building user interfaces.",
+        rationale:
+          "The course quotes reactjs.org's definition of React as a UI library.",
+        isCorrect: true,
+      },
+      {
+        text: "A server-side runtime environment for executing JavaScript.",
+        rationale: "This is the definition of Node.js.",
+        isCorrect: false,
+      },
+    ],
+    hint: "Focus on its official designation as a software tool.",
+  },
+  {
+    id: 117,
+    topic: "React",
+    question:
+      "React is based around creating reusable units that contain both markup (HTML) and logic (JavaScript). What is the term for these units?",
+    answerOptions: [
+      {
+        text: "Modules",
+        rationale:
+          "Modules are general files for organization, but not the specific reusable UI units.",
+        isCorrect: false,
+      },
+      {
+        text: "Classes",
+        rationale:
+          "React can use classes, but the term for the UI unit itself is component.",
+        isCorrect: false,
+      },
+      {
+        text: "Fragments",
+        rationale:
+          "Fragments are structural wrappers, not the main reusable units.",
+        isCorrect: false,
+      },
+      {
+        text: "Components",
+        rationale:
+          "Components are the core building blocks of any React application, combining UI and behavior.",
+        isCorrect: true,
+      },
+    ],
+    hint: "The concept is often compared to building with LEGO bricks.",
+  },
+  {
+    id: 118,
+    topic: "React",
+    question:
+      "One of React's properties is **Declarative**. What does this mean in practice?",
+    answerOptions: [
+      {
+        text: "We explicitly tell React every single step to update the DOM (Imperative).",
+        rationale:
+          "This describes **Imperative** programming, which React aims to replace.",
+        isCorrect: false,
+      },
+      {
+        text: "We tell React how we want the application to behave, and React manages the underlying DOM changes.",
+        rationale:
+          "The declarative approach focuses on the desired *state* of the UI, rather than the steps to get there.",
+        isCorrect: true,
+      },
+      {
+        text: "All component logic must be written using pure functions.",
+        rationale:
+          "While preferred, this is related to immutability, not the declarative property itself.",
+        isCorrect: false,
+      },
+      {
+        text: "All application data must be defined globally before components can use it.",
+        rationale:
+          "This relates to state management, not the declarative property.",
+        isCorrect: false,
+      },
+    ],
+    hint: "The focus is on the *what* (the end state), not the *how* (the steps).",
+  },
+  {
+    id: 119,
+    topic: "React",
+    question:
+      "Which term describes the ability to combine encapsulated components to build complex user interfaces in React, similar to building with LEGOs?",
+    answerOptions: [
+      {
+        text: "Inheritance",
+        rationale:
+          "Inheritance is a concept from Object-Oriented Programming (OOP).",
+        isCorrect: false,
+      },
+      {
+        text: "Encapsulation",
+        rationale:
+          "Encapsulation means containing markup and logic within the component, but Composition is the act of combining them.",
+        isCorrect: false,
+      },
+      {
+        text: "Modularity",
+        rationale:
+          "Modularity is a general concept; the specific React term is Composable.",
+        isCorrect: false,
+      },
+      {
+        text: "Composability",
+        rationale:
+          "Composability (or composable) is a key property of React, allowing developers to create complex UIs by nesting simple, reusable components.",
+        isCorrect: true,
+      },
+    ],
+    hint: "This concept is about how components are combined to form the final UI.",
+  },
+  {
+    id: 120,
+    topic: "React",
+    question:
+      "What is a primary advantage of React related to performance optimization for user interfaces?",
+    answerOptions: [
+      {
+        text: "It automatically converts all CSS to be rendered on the server.",
+        rationale:
+          "React's performance benefit is related to DOM updates, not CSS rendering location.",
+        isCorrect: false,
+      },
+      {
+        text: "It minimizes direct DOM operations when updating the UI.",
+        rationale:
+          "React uses the Virtual DOM and an efficient reconciliation algorithm to apply minimal changes to the actual DOM, leading to faster updates.",
+        isCorrect: true,
+      },
+      {
+        text: "It eliminates the need for JavaScript entirely by using components.",
+        rationale: "React is a JavaScript library.",
+        isCorrect: false,
+      },
+      {
+        text: "It forces all data fetching to be done synchronously.",
+        rationale:
+          "Asynchronous fetching is standard practice for modern performance.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This relates to the efficiency of rendering changes to the browser window.",
+  },
+  {
+    id: 121,
+    topic: "React",
+    question:
+      "JSX is the syntax extension used in React to embed markup and logic. What does JSX stand for?",
+    answerOptions: [
+      {
+        text: "JavaScript Extended",
+        rationale: "The name is similar but incorrect.",
+        isCorrect: false,
+      },
+      {
+        text: "JavaScript XML",
+        rationale:
+          "JSX allows writing XML-like syntax directly within JavaScript code.",
+        isCorrect: true,
+      },
+      {
+        text: "Java Syntax Extension",
+        rationale: "React is based on JavaScript, not Java.",
+        isCorrect: false,
+      },
+      {
+        text: "Joint Scripting XAML",
+        rationale: "Incorrect technology and syntax.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This syntax is a blend of JavaScript and a common markup language format.",
+  },
+  {
+    id: 122,
+    topic: "React",
+    question:
+      "What is the primary mechanism for passing read-only data from a parent component to a child component in React?",
+    answerOptions: [
+      {
+        text: "State",
+        rationale: "State is data managed *internally* by a component.",
+        isCorrect: false,
+      },
+      {
+        text: "Refs",
+        rationale:
+          "Refs are used for accessing the DOM or component instances directly.",
+        isCorrect: false,
+      },
+      {
+        text: "Props",
+        rationale:
+          "Props (properties) are the mechanism for transferring data downward in the component tree.",
+        isCorrect: true,
       },
       {
         text: "Context",
         rationale:
-          "Context is a mechanism to pass data through the component tree without prop drilling.",
-        isCorrect: false,
-      },
-      {
-        text: "State",
-        rationale:
-          "`State` is a built-in object that is used to contain data or information about the component that may change over time.",
-        isCorrect: true,
-      },
-      {
-        text: "Ref",
-        rationale:
-          "Refs (references) are primarily used to access the underlying DOM elements.",
+          "Context is for passing data through many levels without prop drilling, but Props is the primary mechanism for parent-child.",
         isCorrect: false,
       },
     ],
-    hint: "This data is managed internally and triggers re-renders when updated.",
+    hint: "This term represents the component's external properties.",
   },
   {
-    id: 63,
-    topic: "React",
-    question: "How are props passed to a child component in React?",
-    answerOptions: [
-      {
-        text: "By calling a dedicated `setProps()` method within the child component.",
-        rationale:
-          "Props are immutable and cannot be set directly by the child.",
-        isCorrect: false,
-      },
-      {
-        text: "As arguments to the component's render method.",
-        isCorrect: false,
-        rationale:
-          "They are the single argument to the functional component, but passed via JSX attributes.",
-      },
-      {
-        text: "As attributes on the component tag in JSX.",
-        rationale:
-          "Props are passed from a parent component to a child component using a key-value pair syntax that resembles HTML attributes.",
-        isCorrect: true,
-      },
-      {
-        text: "By modifying the child component's internal state.",
-        rationale: "Props are distinct from state and are generally read-only.",
-        isCorrect: false,
-      },
-    ],
-    hint: "This is the one-way channel for data flow from parent to child.",
-  },
-  {
-    id: 64,
+    id: 123,
     topic: "React",
     question:
-      "What is the correct way to update state using the `useState` Hook in a functional component?",
+      "In React functional components, which Hook is used to manage and trigger re-renders based on local component data?",
     answerOptions: [
       {
-        text: "By directly modifying the state variable (e.g., `count = count + 1;`).",
+        text: "useEffect",
         rationale:
-          "Direct modification does not notify React to re-render the component.",
+          "Used for side effects (e.g., data fetching, manual DOM changes).",
         isCorrect: false,
       },
       {
-        text: "By calling the setter function returned by `useState`.",
+        text: "useContext",
+        rationale: "Used for consuming context.",
+        isCorrect: false,
+      },
+      {
+        text: "useReducer",
+        rationale: "Used for managing complex state logic.",
+        isCorrect: false,
+      },
+      {
+        text: "useState",
         rationale:
-          "The setter function must be used to update state, as directly modifying the state object will not trigger a re-render.",
+          "The `useState` Hook provides state variables and a setter function to update them, triggering a re-render.",
+        isCorrect: true,
+      },
+    ],
+    hint: "This Hook is the most fundamental way to give a functional component memory.",
+  },
+  {
+    id: 124,
+    topic: "React",
+    question: "What does the `useState` Hook return?",
+    answerOptions: [
+      {
+        text: "A single object containing the current state value and all component methods.",
+        rationale: "It returns an array of two items.",
+        isCorrect: false,
+      },
+      {
+        text: "An array containing the current state value and a function to update it.",
+        rationale:
+          "This array destructuring pattern is standard: `[value, setValue]`.",
         isCorrect: true,
       },
       {
-        text: "By calling `this.setState()` within the functional component.",
-        rationale:
-          "`this.setState()` is used in class components, not functional components with Hooks.",
+        text: "A Promise that resolves with the next state value.",
+        rationale: "State updates are scheduled, not handled via Promises.",
         isCorrect: false,
       },
       {
-        text: "By assigning a new value to the state variable and calling `forceUpdate()`.",
-        rationale:
-          "`forceUpdate()` is generally discouraged and not the intended mechanism for state changes with Hooks.",
+        text: "The entire component's JSX output.",
+        rationale: "The JSX output is what the function returns.",
         isCorrect: false,
       },
     ],
-    hint: "Always use the dedicated function provided by the Hook to ensure React detects the change.",
+    hint: "The return value is typically immediately destructured into two separate variables.",
   },
   {
-    id: 65,
+    id: 125,
     topic: "React",
     question:
-      "What is the purpose of the second argument (dependency array) in the `useEffect` Hook?",
+      "What is the primary rule for the data flow between parent and child components in React?",
     answerOptions: [
       {
-        text: "To provide the initial data for the effect to use.",
-        rationale: "The initial data is passed into the callback function.",
+        text: "Bidirectional flow: Child components can directly modify parent component props.",
+        rationale: "Props are read-only, making the flow unidirectional.",
         isCorrect: false,
       },
       {
-        text: "To specify the cleanup function to run when the component unmounts.",
-        rationale:
-          "The cleanup function is returned by the effect callback itself.",
+        text: "Side-to-side flow: Data must be passed between sibling components first.",
+        rationale: "Siblings pass data via a common ancestor.",
         isCorrect: false,
       },
       {
-        text: "To specify variables that, when changed, should trigger the effect function to run again.",
+        text: "Unidirectional flow: Data is passed down via props, and events/callbacks are used to communicate changes up.",
         rationale:
-          "The dependency array controls when the side effect should re-run, optimizing performance and preventing infinite loops.",
+          "This top-down, one-way flow is a core architectural principle of React.",
         isCorrect: true,
       },
       {
-        text: "To pass props directly to the effect callback without using closure.",
-        rationale:
-          "The effect callback has access to all variables in its scope due to closure.",
+        text: "Global flow: All data must be placed in Context before use.",
+        rationale: "Global state is optional, not mandatory.",
         isCorrect: false,
       },
     ],
-    hint: "This array tells React which specific values the effect is dependent on.",
+    hint: "This principle is often described as 'one-way data binding'.",
   },
   {
-    id: 66,
+    id: 126,
     topic: "React",
     question:
-      'What is a "side effect" in React, which the `useEffect` hook is designed to manage?',
+      "Which component type, common in older React code, extends `React.Component` and includes lifecycle methods like `componentDidMount`?",
     answerOptions: [
       {
-        text: "Any logical operation that produces an incorrect result.",
-        rationale:
-          "A side effect is a technical term for operations that interact with the outside world, not an error state.",
+        text: "Functional Component",
+        rationale: "Functional components use Hooks for state and lifecycle.",
         isCorrect: false,
       },
       {
-        text: "The return value of the component's render function (the JSX).",
-        rationale: "The JSX rendering is the component's primary output.",
+        text: "High Order Component (HOC)",
+        rationale:
+          "HOCs are functions that take a component and return a new component.",
         isCorrect: false,
       },
       {
-        text: "Operations like data fetching, subscriptions, or manually changing the DOM.",
+        text: "Class Component",
         rationale:
-          "Side effects are any interactions with the outside world that occur after rendering.",
+          "Class Components rely on the `class` syntax and lifecycle methods.",
         isCorrect: true,
       },
       {
-        text: "The process of updating a component's state using its setter function.",
+        text: "Stateful Component",
         rationale:
-          "State update is a core part of the component's internal logic.",
+          "This is a descriptive term, not a type (both functional and class can be stateful).",
         isCorrect: false,
       },
     ],
-    hint: "These are activities that are not purely related to computing the output of the render function.",
+    hint: "This type of component uses the JavaScript `class` keyword.",
   },
   {
-    id: 67,
+    id: 127,
     topic: "React",
     question:
-      "What is a common way to conditionally render a component or element in React?",
+      "Which of the following is a key reason the course notes suggest using React to build DHIS2 applications?",
     answerOptions: [
       {
-        text: "Using a `<conditional>` JSX tag which React translates.",
+        text: "React is the only JavaScript library that supports mobile development.",
         rationale:
-          "There is no `<conditional>` tag; logic must be expressed using standard JavaScript constructs.",
+          "Other libraries also support mobile, but this isn't the key reason provided.",
         isCorrect: false,
       },
       {
-        text: "Defining the components in separate files and importing only the one needed.",
-        rationale: "The *rendering* choice is made inside the parent's JSX.",
+        text: "React is specifically optimized for DHIS2 database queries.",
+        rationale:
+          "React is UI-focused; optimization is done via dedicated DHIS2 libraries.",
         isCorrect: false,
       },
       {
-        text: "Using the ternary operator (`condition ? <ComponentA /> : <ComponentB />`) inside JSX.",
+        text: "React simplifies the creation of complex applications by allowing HTML and JavaScript logic to be combined.",
         rationale:
-          "The ternary operator is a concise way to choose one of two expressions to execute based on a condition within the JSX.",
+          "The course notes explicitly state this combination makes complex applications easier to manage than separate files.",
         isCorrect: true,
       },
       {
-        text: "Calling `if/else` statements outside the functional component's return block.",
-        rationale:
-          "While `if/else` can be used *before* the return, the ternary operator or logical AND are more common *inside* the JSX return.",
+        text: "React provides built-in tools for CSS pre-processing.",
+        rationale: "CSS pre-processing is external to React.",
         isCorrect: false,
       },
     ],
-    hint: "This involves standard JavaScript logic embedded directly into the markup.",
+    hint: "This relates to the file organization and maintenance of code.",
   },
   {
-    id: 68,
+    id: 128,
     topic: "React",
     question:
-      "When rendering a list of elements in React, what is the importance of the `key` prop?",
+      "What is the correct way to embed a JavaScript variable named `username` inside JSX?",
     answerOptions: [
       {
-        text: "It is used to pass unique styling to each list item via CSS.",
+        text: "<p>{username}</p>",
         rationale:
-          "The `key` prop is for React's internal reconciliation process, not for styling.",
-        isCorrect: false,
-      },
-      {
-        text: "It helps React efficiently identify which items have changed, been added, or been removed.",
-        rationale:
-          "The `key` prop provides a stable identity to list items, which is crucial for performance during re-renders.",
+          "Curly braces are the standard way to escape JSX and inject a JavaScript expression.",
         isCorrect: true,
       },
       {
-        text: "It defines the HTML element type for each item in the list.",
-        rationale: "The element type is defined by the surrounding JSX tags.",
+        text: "<p>$(username)</p>",
+        rationale:
+          "This is a syntax used in some template languages, but not JSX.",
         isCorrect: false,
       },
       {
-        text: "It is the only way to pass data from the parent to the list item component.",
-        rationale: "Data is passed via other props.",
+        text: '<p>"username"</p>',
+        rationale: "This displays the literal string 'username'.",
+        isCorrect: false,
+      },
+      {
+        text: "<p>[[username]]</p>",
+        rationale: "Incorrect syntax.",
         isCorrect: false,
       },
     ],
-    hint: "This prop must be unique among its siblings in the list.",
+    hint: "This mechanism is essential for rendering dynamic data.",
   },
   {
-    id: 69,
+    id: 129,
+    topic: "React",
+    question: "What is the purpose of the **Virtual DOM** in React?",
+    answerOptions: [
+      {
+        text: "To serve as a persistent backend database for component data.",
+        rationale: "The VDOM is memory-based for rendering.",
+        isCorrect: false,
+      },
+      {
+        text: "To cache external API responses for faster data fetching.",
+        rationale: "This is a function of a network cache.",
+        isCorrect: false,
+      },
+      {
+        text: "To maintain a lightweight, in-memory representation of the actual DOM, optimizing updates.",
+        rationale:
+          "React uses the VDOM to compare the previous and current state, minimizing expensive updates to the browser's slow native DOM.",
+        isCorrect: true,
+      },
+      {
+        text: "To provide a secure layer for transferring data between components.",
+        rationale: "Security is handled by other mechanisms.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This data structure is key to React's performance advantage.",
+  },
+  {
+    id: 130,
     topic: "React",
     question:
-      "Which of the following best describes a **Functional Component** in modern React?",
+      "In a functional component, what is the correct way to ensure the `useEffect` Hook runs only *once* after the initial render (similar to `componentDidMount`)?",
     answerOptions: [
       {
-        text: "A class that extends `React.Component` and uses a `render()` method.",
-        rationale: "This describes a Class Component.",
+        text: "By omitting the dependency array entirely.",
+        rationale:
+          "Omitting the array causes the effect to run after *every* render.",
         isCorrect: false,
       },
       {
-        text: "A JavaScript object that contains state and lifecycle methods.",
-        rationale:
-          "This is a simplified description of a Class Component instance.",
+        text: "By setting the second argument to `false`.",
+        rationale: "The dependency array is not a boolean flag.",
         isCorrect: false,
       },
       {
-        text: "A custom HTML tag that is defined using JSX syntax.",
+        text: "By providing an empty dependency array (`[]`).",
         rationale:
-          "Functional components are JavaScript functions that *return* JSX.",
-        isCorrect: false,
-      },
-      {
-        text: "A JavaScript function that accepts a single `props` object and returns React elements.",
-        rationale:
-          "Functional components are now the standard way to write components.",
+          "The empty array tells React that the effect has no dependencies that will change, so it only needs to run on mount.",
         isCorrect: true,
       },
+      {
+        text: "By using the `useMountEffect` Hook instead.",
+        rationale: "This is not a built-in React Hook.",
+        isCorrect: false,
+      },
     ],
-    hint: "They are essentially functions that map props to UI elements.",
+    hint: "This array tells React to only run the effect if the listed values have changed.",
   },
   {
-    id: 70,
+    id: 131,
     topic: "React",
     question:
-      "How do you prevent the default browser action (like a form submitting) in a React event handler?",
+      "When defining an event handler in JSX (e.g., `onClick`), what is the case convention used?",
     answerOptions: [
       {
-        text: "By returning `false` from the event handler function.",
-        rationale:
-          "Returning `false` does not reliably stop the default behavior in React's synthetic event system.",
+        text: "snake_case (e.g., `on_click`)",
+        rationale: "Not the convention.",
         isCorrect: false,
       },
       {
-        text: "By setting the event's `default` property to `false`.",
-        rationale:
-          "There is no standard `default` property to set on the event object.",
+        text: "kebab-case (e.g., `on-click`)",
+        rationale: "Kebab-case is used for standard HTML attributes.",
         isCorrect: false,
       },
       {
-        text: "By calling the `preventDefault()` method on the synthetic event object.",
+        text: "lowercase (e.g., `onclick`)",
         rationale:
-          "The synthetic event object passed to the handler has a `preventDefault()` method, which stops the default action.",
+          "Lowercase is used for standard HTML event attributes (e.g., `<button onclick='...'>`), but React uses camelCase.",
+        isCorrect: false,
+      },
+      {
+        text: "camelCase (e.g., `onClick`)",
+        rationale:
+          "React converts all standard DOM event names to camelCase for use in JSX.",
         isCorrect: true,
       },
-      {
-        text: "By using the `<PreventDefault>` custom component wrapper.",
-        rationale:
-          "Preventing default behavior is done with a method on the event object.",
-        isCorrect: false,
-      },
     ],
-    hint: "This method is common to event objects in both plain JavaScript and React's event system.",
+    hint: "This convention matches standard JavaScript style for methods and properties.",
   },
   {
-    id: 71,
+    id: 132,
     topic: "React",
     question:
-      "In a functional component, which hook is primarily used to perform an action when the component is *first* mounted?",
+      "What is the primary purpose of the `key` prop when rendering a list of components (e.g., using `map`)?",
     answerOptions: [
       {
-        text: "useLayoutEffect with an empty dependency array.",
-        rationale:
-          "This hook runs synchronously after all DOM mutations, but `useEffect` is the standard for mount-time side effects.",
+        text: "To provide a unique CSS selector for styling each item.",
+        rationale: "CSS selection is done via `id` or `class`.",
         isCorrect: false,
       },
       {
-        text: "useState with an initial function argument.",
-        rationale:
-          "`useState` is for managing state, not for running a side effect upon mounting.",
+        text: "To define the sort order of the list items on the screen.",
+        rationale: "Sorting must be done on the array data *before* rendering.",
         isCorrect: false,
       },
       {
-        text: "useEffect with a return function for cleanup.",
+        text: "To help React efficiently identify which list items have changed, been added, or been deleted.",
         rationale:
-          "The return function in `useEffect` is for cleanup on unmount.",
-        isCorrect: false,
-      },
-      {
-        text: "useEffect with an empty dependency array (`[]`).",
-        rationale:
-          "An empty dependency array ensures the effect only runs once after the initial render and not again.",
+          "The `key` provides a stable identity, critical for the reconciliation process.",
         isCorrect: true,
       },
+      {
+        text: "To pass the index of the item to the child component.",
+        rationale:
+          "The index can be passed as a prop, but the `key` is special for React's internal use.",
+        isCorrect: false,
+      },
     ],
-    hint: "This mimics the 'setup' phase of a class component's lifecycle.",
+    hint: "This prop is used internally by the Virtual DOM algorithm.",
   },
   {
-    id: 72,
+    id: 133,
     topic: "React",
     question:
-      "React follows a **unidirectional data flow**. What does this primarily mean?",
+      "Which statement best describes the term **Props Immutability** in React?",
     answerOptions: [
       {
-        text: "All data must flow through a global state management library.",
-        rationale: "The principle applies even without a dedicated library.",
+        text: "Props can be modified by the parent component at any time, but not by the child.",
+        rationale:
+          "The parent can pass new props, but the child cannot modify them.",
         isCorrect: false,
       },
       {
-        text: "Data can be freely passed between any component without restriction.",
-        rationale: "This is the opposite of the principle.",
+        text: "Props must be defined using the `const` keyword in the parent component.",
+        rationale:
+          "While preferred, this isn't the core principle of immutability.",
         isCorrect: false,
       },
       {
-        text: "The entire application is re-rendered whenever any piece of data changes.",
-        rationale: "React uses a Virtual DOM and smart reconciliation.",
-        isCorrect: false,
-      },
-      {
-        text: "Data and state are typically passed down from parent components to child components via props.",
-        rationale: "The primary data flow is top-down (parent to child).",
+        text: "Props are read-only and should never be modified by the child component that receives them.",
+        rationale:
+          "A component must treat its props as fixed and immutable to ensure predictable state flow.",
         isCorrect: true,
       },
+      {
+        text: "Props must always contain primitive data types (strings, numbers, booleans).",
+        rationale: "Props can contain objects and functions.",
+        isCorrect: false,
+      },
     ],
-    hint: "The main direction of data transmission is from the top of the component tree downwards.",
+    hint: "The data passed down is fixed; if it needs to change, the parent must provide a new value.",
   },
   {
-    id: 73,
+    id: 134,
     topic: "React",
     question:
-      "In a controlled form component, what is the role of the `onChange` event handler on an input element?",
+      'In the JSX expression `className="header"`, why is `className` used instead of the standard HTML attribute `class`?',
     answerOptions: [
       {
-        text: "It prevents the browser from changing the input value to control the input's behavior.",
+        text: "`class` is a reserved keyword in JavaScript, so React uses `className` to avoid conflicts.",
         rationale:
-          "It handles the change, but it's the `value` prop that ultimately controls the input's displayed content.",
-        isCorrect: false,
-      },
-      {
-        text: "It automatically submits the form data to the server upon any input change.",
-        rationale: "Submission is handled by the form's `onSubmit` handler.",
-        isCorrect: false,
-      },
-      {
-        text: "It is not needed, as React automatically handles input changes for controlled components.",
-        rationale:
-          "The developer must explicitly provide the `onChange` handler to update state.",
-        isCorrect: false,
-      },
-      {
-        text: "It updates the component's state with the input's new value on every keystroke.",
-        rationale:
-          'Controlled components rely on state to be the "source of truth," and `onChange` is essential for keeping the state synchronized with the input.',
-        isCorrect: true,
-      },
-    ],
-    hint: "This is how you connect the user's interaction back to the component's internal data.",
-  },
-  {
-    id: 74,
-    topic: "React",
-    question: "By convention, how should all React components be named?",
-    answerOptions: [
-      {
-        text: "With all lowercase letters (kebab-case).",
-        rationale: "Kebab-case is used for standard HTML attributes/tags.",
-        isCorrect: false,
-      },
-      {
-        text: "With an underscore (snake_case).",
-        rationale: "Snake case is not the standard for React component names.",
-        isCorrect: false,
-      },
-      {
-        text: "With a capital letter (PascalCase).",
-        rationale:
-          "Components should start with a capital letter (e.g., `MyComponent`) to distinguish them from regular HTML elements in JSX.",
+          "Since JSX is JavaScript, using reserved words like `class` or `for` is avoided.",
         isCorrect: true,
       },
       {
-        text: "With a lowercase letter (camelCase).",
-        rationale:
-          "Camel case is typically used for function names, variables, and properties.",
+        text: "`className` is a specific React component property for styling.",
+        rationale: "It maps directly to the HTML `class` attribute.",
+        isCorrect: false,
+      },
+      {
+        text: "The Virtual DOM only supports attributes starting with `class`.",
+        rationale: "Incorrect; the VDOM supports standard HTML attributes.",
+        isCorrect: false,
+      },
+      {
+        text: "It is an older syntax used before HTML5 was adopted by React.",
+        rationale: "It is the current, modern syntax.",
         isCorrect: false,
       },
     ],
-    hint: "This naming convention is necessary for React to differentiate between a custom component and a built-in element.",
+    hint: "This is necessary because of a conflict with a fundamental JavaScript concept.",
   },
   {
-    id: 75,
+    id: 135,
     topic: "React",
     question:
-      "What is a React Fragment (`<></>` or `<React.Fragment>`) used for?",
+      "What is the primary role of the cleanup function returned by `useEffect`?",
     answerOptions: [
       {
-        text: "To add external libraries or stylesheets to the component.",
-        rationale: "Libraries are added via imports.",
+        text: "To define the next state value after the effect runs.",
+        rationale: "The state setter handles the next value.",
         isCorrect: false,
       },
       {
-        text: "To create a reusable, self-closing component for complex logic.",
-        rationale: "This describes a custom component.",
+        text: "To execute synchronous code before the component first mounts.",
+        rationale: "The cleanup runs on unmount or before the next effect.",
         isCorrect: false,
       },
       {
-        text: "To group multiple elements without adding an extra node to the DOM.",
+        text: "To reverse side effects (e.g., unsubscribe from a timer or remove event listeners) when the component unmounts or before the effect re-runs.",
         rationale:
-          "Fragments allow a component's `render` method to return multiple elements without wrapping them in an unnecessary `<div>` or other container.",
+          "Cleanup prevents memory leaks by reversing setup operations.",
         isCorrect: true,
       },
       {
-        text: "To define the section of the component that should not be re-rendered.",
+        text: "To prevent the component from re-rendering if props are unchanged.",
         rationale:
-          "Optimizing re-renders is typically done with hooks like `useMemo` or `React.memo`.",
+          "This is the job of `React.memo` or `shouldComponentUpdate`.",
         isCorrect: false,
       },
     ],
-    hint: "This is useful when a component needs to return sibling elements but must satisfy the single-root rule.",
+    hint: "This function is crucial for preventing memory leaks in components that perform subscriptions or setup external resources.",
   },
   {
-    id: 76,
+    id: 136,
     topic: "React",
     question:
-      "The `useReducer` Hook is an alternative to `useState` that is typically used for what purpose?",
+      "Which Hook is designed to optimize performance by memoizing (caching) the return value of a function, re-calculating only when dependencies change?",
     answerOptions: [
       {
-        text: "To handle asynchronous data fetching only.",
-        rationale:
-          "It can handle async actions, but its primary role is state management.",
+        text: "useCallback",
+        rationale: "Memoizes the function definition itself, not its result.",
         isCorrect: false,
       },
       {
-        text: "To manage complex state logic involving multiple sub-values or when the next state depends on the previous one.",
+        text: "useMemo",
         rationale:
-          "`useReducer` follows the Redux pattern (reducer and action), making complex state transitions predictable.",
+          "The `useMemo` Hook is used to calculate and cache a value that is only recomputed when one of its dependencies changes.",
         isCorrect: true,
       },
       {
-        text: "To perform manual DOM manipulation inside a component.",
-        rationale: "This is handled by `useRef` and `useEffect`.",
+        text: "useRef",
+        rationale: "Used for direct access to the DOM or mutable values.",
         isCorrect: false,
       },
       {
-        text: "To subscribe to values from a parent component.",
-        rationale: "This is handled by the Context API and `useContext`.",
+        text: "useLayoutEffect",
+        rationale: "Used for synchronous DOM changes.",
         isCorrect: false,
       },
     ],
-    hint: "This hook is often compared to a pattern from the Redux state library.",
+    hint: "The name implies remembering or caching a calculated value.",
   },
   {
-    id: 77,
+    id: 137,
+    topic: "React",
+    question: "What is the purpose of the `useRef` Hook?",
+    answerOptions: [
+      {
+        text: "To store a value that triggers a re-render when changed.",
+        rationale: "This is the function of `useState`.",
+        isCorrect: false,
+      },
+      {
+        text: "To perform asynchronous data fetching from an API.",
+        rationale: "This is done via `useEffect` and `fetch`.",
+        isCorrect: false,
+      },
+      {
+        text: "To access the DOM element directly or to store a mutable value that does *not* cause a re-render when changed.",
+        rationale:
+          "The `current` property of the ref object is mutable and is commonly used to interact with the underlying DOM node or keep a mutable value.",
+        isCorrect: true,
+      },
+      {
+        text: "To manage global application state for the entire component tree.",
+        rationale: "This is the function of the Context API.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This Hook is essential when you need to bypass React's declarative flow.",
+  },
+  {
+    id: 138,
     topic: "React",
     question:
-      "What is the primary benefit of creating a Custom Hook (e.g., `useFetcher`)?",
+      "What is the consequence of updating a component's state using the setter function from `useState`?",
     answerOptions: [
       {
-        text: "It guarantees that the wrapped component will never re-render.",
-        rationale: "Hooks don't guarantee no re-renders; they simplify logic.",
+        text: "The entire application reloads from the server.",
+        rationale:
+          "State changes only trigger re-renders of the component tree.",
         isCorrect: false,
       },
       {
-        text: "It allows for the reuse of stateful logic across multiple components without duplicating code.",
+        text: "The component is immediately unmounted and remounted.",
+        rationale: "The component is re-rendered, not unmounted.",
+        isCorrect: false,
+      },
+      {
+        text: "React schedules a re-render of the component and its child components.",
         rationale:
-          "Custom hooks are a convention for sharing logic (state and effects) between functional components.",
+          "The update function tells React to re-run the component function with the new state value.",
         isCorrect: true,
       },
       {
-        text: "It converts a functional component into a class component internally.",
-        rationale: "Hooks are specifically for functional components.",
-        isCorrect: false,
-      },
-      {
-        text: "It gives direct access to the component's internal render method.",
-        rationale: "Hooks abstract away the render details.",
+        text: "Only the component's internal data is updated, and the UI remains unchanged.",
+        rationale: "The UI change is the entire purpose of the state update.",
         isCorrect: false,
       },
     ],
-    hint: "Think about code sharing and abstraction.",
+    hint: "The setter function is the bridge from data change to UI update.",
   },
   {
-    id: 78,
-    topic: "React",
-    question: "In React, what is the **SyntheticEvent** system?",
-    answerOptions: [
-      {
-        text: "A way to automatically convert class component events to functional component events.",
-        rationale: "It handles cross-browser compatibility.",
-        isCorrect: false,
-      },
-      {
-        text: "A custom event listener that attaches directly to the browser's window object.",
-        rationale: "Events are attached to the document root.",
-        isCorrect: false,
-      },
-      {
-        text: "A wrapper around the browser's native event system to ensure cross-browser consistency and unified behavior.",
-        rationale:
-          "Synthetic Events normalize event objects across different browsers and implement event pooling.",
-        isCorrect: true,
-      },
-      {
-        text: "A mechanism to delay event handling until the component has fully rendered.",
-        rationale: "Event handling occurs immediately.",
-        isCorrect: false,
-      },
-    ],
-    hint: "This system is responsible for making event handling reliable across all browsers.",
-  },
-  {
-    id: 79,
-    topic: "React",
-    question: "A React Portal is used to render a component's output where?",
-    answerOptions: [
-      {
-        text: "Inside the component's own JSX structure, but wrapped in a Fragment.",
-        rationale: "This is standard rendering, not a Portal.",
-        isCorrect: false,
-      },
-      {
-        text: "Into a different DOM node that exists outside the parent component's DOM hierarchy.",
-        rationale:
-          "Portals allow components to escape clipping or positioning issues of their parent, commonly used for modals or tooltips.",
-        isCorrect: true,
-      },
-      {
-        text: "Only in the component's shadow DOM for isolated styling.",
-        rationale:
-          "React does not typically use Shadow DOM; Portals use standard DOM.",
-        isCorrect: false,
-      },
-      {
-        text: "Asynchronously after the entire component tree has completed rendering.",
-        rationale: "Portals render synchronously like normal components.",
-        isCorrect: false,
-      },
-    ],
-    hint: "This feature is often needed for things like modals or floating tooltips.",
-  },
-  {
-    id: 80,
+    id: 139,
     topic: "React",
     question:
-      "The `React.memo` High Order Component (HOC) is used for what performance optimization purpose?",
+      "Which method is commonly passed as a prop from a parent to a child component to allow the child to communicate a change back up to the parent?",
     answerOptions: [
       {
-        text: "To wrap class components and convert them to functional components.",
-        rationale: "It only wraps functional components.",
+        text: "A standard data variable (string or number).",
+        rationale: "Data variables are read-only.",
         isCorrect: false,
       },
       {
-        text: "To automatically cache the result of expensive calculations within the component.",
-        rationale: "This is the job of `useMemo`.",
-        isCorrect: false,
-      },
-      {
-        text: "To prevent a functional component from re-rendering if its props have not changed (a form of memoization).",
+        text: "A callback function defined in the parent component.",
         rationale:
-          "This is the exact purpose of `React.memo`, performing a shallow comparison of props.",
+          "The child calls this function, passing data back, and the parent executes the function to handle the state change.",
         isCorrect: true,
       },
       {
-        text: "To limit the number of times the `useEffect` hook runs.",
-        rationale: "This is controlled by the dependency array in `useEffect`.",
+        text: "The parent's `useState` setter function directly.",
+        rationale:
+          "While possible, a custom wrapper function is often preferred for encapsulation.",
+        isCorrect: false,
+      },
+      {
+        text: "An imported external utility function.",
+        rationale:
+          "The function must be defined in the parent to access the parent's state.",
         isCorrect: false,
       },
     ],
-    hint: "This tool helps to avoid unnecessary component updates based on prop stability.",
+    hint: "This preserves the unidirectional data flow principle.",
+  },
+  {
+    id: 140,
+    topic: "React",
+    question:
+      "What is the primary role of the `key` prop in a list of rendered elements?",
+    answerOptions: [
+      {
+        text: "To define the initial value of the list element's state.",
+        rationale: "State is defined internally.",
+        isCorrect: false,
+      },
+      {
+        text: "To provide a stable identity for each element, improving DOM reconciliation performance.",
+        rationale:
+          "The key helps React manage the identity and ordering of dynamic children.",
+        isCorrect: true,
+      },
+      {
+        text: "To force the component to re-render on every state change.",
+        rationale:
+          "The key helps *prevent* unnecessary re-renders when ordering changes.",
+        isCorrect: false,
+      },
+      {
+        text: "To pass the element's index to the child component as a prop.",
+        rationale:
+          "The index can be passed as a prop, but the key is for React's internal use.",
+        isCorrect: false,
+      },
+    ],
+    hint: "The value must be unique among the element's siblings.",
+  },
+  {
+    id: 141,
+    topic: "React",
+    question:
+      "When conditionally rendering content in React JSX, which standard JavaScript technique is often used for simple `if/else` logic within the return statement?",
+    answerOptions: [
+      {
+        text: "Switch statement (inside JSX)",
+        rationale:
+          "Switch statements cannot be used directly inside JSX braces.",
+        isCorrect: false,
+      },
+      {
+        text: "Logical OR operator (`||`)",
+        rationale: "Used for default values, not dual conditional rendering.",
+        isCorrect: false,
+      },
+      {
+        text: "Ternary operator (`condition ? <True /> : <False />`)",
+        rationale:
+          "The ternary operator is compact and is commonly used for conditional rendering within the JSX return.",
+        isCorrect: true,
+      },
+      {
+        text: "Traditional `if...else` block (inside JSX)",
+        rationale:
+          "Traditional `if/else` can be used *before* the return, but not *inside* the JSX braces.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This operator has three parts and is often used as a concise replacement for `if...else`.",
+  },
+  {
+    id: 142,
+    topic: "React",
+    question: "What is the function of the `useContext` Hook?",
+    answerOptions: [
+      {
+        text: "To define a component's local state that is visible to all children.",
+        rationale: "This is done via the Context Provider.",
+        isCorrect: false,
+      },
+      {
+        text: "To create a global state wrapper that eliminates the need for any props.",
+        rationale: "The Hook *consumes* Context, it doesn't create it.",
+        isCorrect: false,
+      },
+      {
+        text: "To allow a functional component to consume values provided by a React Context object.",
+        rationale:
+          "The Hook allows components to access data stored in a Context object higher up the tree without receiving props.",
+        isCorrect: true,
+      },
+      {
+        text: "To execute side effects whenever a component is unmounted.",
+        rationale: "This is the job of the `useEffect` cleanup function.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This Hook is essential for avoiding 'prop drilling' (passing props through many intermediate components).",
+  },
+  {
+    id: 143,
+    topic: "React",
+    question:
+      "By convention, why should React component function names start with a capital letter (e.g., `MyComponent`)?",
+    answerOptions: [
+      {
+        text: "To ensure they are correctly exported as default functions.",
+        rationale: "Exporting is independent of capitalization.",
+        isCorrect: false,
+      },
+      {
+        text: "To align with standard JavaScript naming conventions for functions.",
+        rationale: "Standard JavaScript functions use lowercase camelCase.",
+        isCorrect: false,
+      },
+      {
+        text: "To allow React to distinguish them from standard HTML elements (which are lowercase) during JSX compilation.",
+        rationale:
+          "React treats lowercase names like `<div>` as DOM tags and capitalized names like `<Component>` as custom components.",
+        isCorrect: true,
+      },
+      {
+        text: "To provide them with global scope across the application.",
+        rationale: "Scope is controlled by imports/exports.",
+        isCorrect: false,
+      },
+    ],
+    hint: "This is a syntactic requirement for the JSX compiler.",
+  },
+  {
+    id: 144,
+    topic: "React",
+    question:
+      "Which method is called on the synthetic event object (e.g., in a form `onSubmit` handler) to stop the browser from performing its default action?",
+    answerOptions: [
+      {
+        text: "event.stopPropagation()",
+        rationale: "This stops event bubbling.",
+        isCorrect: false,
+      },
+      {
+        text: "event.preventDefault()",
+        rationale:
+          "This method prevents the default browser behavior, such as navigating to a new page after a link click or submitting a form.",
+        isCorrect: true,
+      },
+      {
+        text: "event.stopDefault()",
+        rationale: "Incorrect method name.",
+        isCorrect: false,
+      },
+      {
+        text: "return false",
+        rationale:
+          "This is an outdated method that does not work reliably in modern React.",
+        isCorrect: false,
+      },
+    ],
+    hint: "The name implies stopping the expected, standard behavior.",
+  },
+  {
+    id: 145,
+    topic: "React",
+    question:
+      "What is the advantage of the **Declarative property** of React regarding debugging?",
+    answerOptions: [
+      {
+        text: "It eliminates the need for external debugging tools.",
+        rationale: "Debugging tools are still needed.",
+        isCorrect: false,
+      },
+      {
+        text: "It makes the code more predictable and debugging easier.",
+        rationale:
+          "By focusing on state transitions, the code is more predictable, which simplifies identifying bugs.",
+        isCorrect: true,
+      },
+      {
+        text: "It forces all console logs to be displayed in a separate panel.",
+        rationale: "This is a feature of browser developer tools.",
+        isCorrect: false,
+      },
+      {
+        text: "It automatically generates unit tests for all components.",
+        rationale: "Tests must be written manually.",
+        isCorrect: false,
+      },
+    ],
+    hint: "If you know what state should result in what UI, tracking errors is simpler.",
   },
 ];
 

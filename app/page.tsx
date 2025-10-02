@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useState } from "react";
 import QuestionCard from "./components/QuestionCard";
 import Results from "./components/Results";
-import { getShuffledQuizQuestions } from "./data";
+import { ALL_QUIZ_QUESTIONS, getShuffledQuizQuestions } from "./data";
 import { QuizState, UserAnswer } from "./types";
 
 export default function Home() {
@@ -79,7 +79,8 @@ export default function Home() {
             IN5320 - Mock Exam
           </h1>
           <p className="text-gray-600 mt-2">
-            A random set of 60 questions selected from a pool of 80.
+            A random set of 60 questions selected from a pool of{" "}
+            {ALL_QUIZ_QUESTIONS.length}.
           </p>
         </header>
 
