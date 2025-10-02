@@ -1,8 +1,8 @@
 "use client";
-import React, { useState, useEffect, useCallback } from "react";
-import { getShuffledQuizQuestions } from "./data";
+import { useCallback, useEffect, useState } from "react";
 import QuestionCard from "./components/QuestionCard";
 import Results from "./components/Results";
+import { getShuffledQuizQuestions } from "./data";
 import { QuizState, UserAnswer } from "./types";
 
 export default function Home() {

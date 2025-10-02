@@ -1,5 +1,5 @@
 import React from "react";
-import { UserAnswer, Question } from "../types";
+import { Question, UserAnswer } from "../types";
 
 interface ResultsProps {
   userAnswers: UserAnswer[];
@@ -98,7 +98,7 @@ const Results: React.FC<ResultsProps> = ({ userAnswers, onRestart }) => {
         </>
       ) : (
         <h2 className="text-2xl font-bold text-center text-green-700">
-          Perfect Score! You&apos;re ready for the exam.
+          Perfect Score! You&apos;xsre ready for the exam.
         </h2>
       )}
 
