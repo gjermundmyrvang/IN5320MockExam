@@ -72,7 +72,7 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br transition-colors wave-gradient-bg p-4 font-jura">
+    <div className="min-h-screen bg-gradient-to-br transition-colors wave-gradient-bg p-4 font-jura text-black">
       <div className="max-w-3xl mx-auto">
         <header className="text-center mb-8 pt-4">
           <h1 className="text-4xl font-extrabold">IN5320 - Mock Exam</h1>
