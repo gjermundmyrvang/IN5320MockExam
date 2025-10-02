@@ -273,12 +273,12 @@ export const ALL_QUIZ_QUESTIONS: Question[] = [
         isCorrect: false,
       },
       {
-        text: "",
+        text: "# This is a comment",
         rationale: "This syntax is slightly incorrect and outdated.",
         isCorrect: false,
       },
       {
-        text: "",
+        text: "<!-- This is a comment -->",
         rationale:
           "This is the correct syntax for an HTML comment, which is not rendered by the browser.",
         isCorrect: true,
