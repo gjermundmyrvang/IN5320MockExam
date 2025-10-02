@@ -18,7 +18,7 @@ export default function Home() {
   const initializeQuiz = useCallback(() => {
     const questions = getShuffledQuizQuestions();
     setQuizState({
-      currentQuestionIndex: 55,
+      currentQuestionIndex: 0,
       isQuizFinished: false,
       userAnswers: [], // Reset answers array
       questions: questions,
